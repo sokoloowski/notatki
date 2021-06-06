@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-double *mergesort_iter(double *wejscie, double *wyjscie, int n)
+double *mergesort(double *wejscie, double *wyjscie, int n)
 {
     int dlugosc_podciagu, poczatek_podciagu, i, j, ograniczenie_i, ograniczenie_j, k;
     double *pomoc;
@@ -49,7 +49,7 @@ int main(void)
     double tablica[20] = {1, 5, 4.36, 7, 12, 17, -11, 8, 0, 86,
                           12, 1, 17, 2, 21, 56, 53, -20, 10, 15};
     double tablica_pomocnicza[20] = {0};
-    double *sorted = mergesort_iter(tablica, tablica_pomocnicza, 20);
+    double *sorted = mergesort(tablica, tablica_pomocnicza, 20);
 
     printf("Mergesort - iterative\n");
     for (int i = 0; i < 20; i++)
