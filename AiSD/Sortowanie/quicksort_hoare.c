@@ -9,18 +9,27 @@ void swap(double *a, double *b)
 
 int partition(double *tab, int start, int end)
 {
-    int pivot = tab[end];
-    int i = (start - 1);
-    for (int j = start; j < end; j++)
-    {
-        if (tab[j] < pivot)
-        {
+    int i = start - 1;
+    int j = end + 1;
+    double pivot = tab[start];
+    double temp;
+
+    while (i < j){
+        i++;
+        while (tab[i] <= pivot){
             i++;
+        }
+        j--;
+        while (tab[j] > pivot){
+            j--;
+        }
+        if (i < j) {
             swap(&tab[i], &tab[j]);
         }
     }
-    swap(&tab[i + 1], &tab[end]);
-    return i + 1;
+    swap(&tab[start], &tab[j]);
+
+    return j;
 }
 
 void quicksort(double *tab, int start, int end)
