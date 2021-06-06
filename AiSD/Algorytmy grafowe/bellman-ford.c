@@ -55,13 +55,8 @@ int main(void)
     for (int i = 0; i < n; i++)
     {
         vertex[i].p = -1;
-        vertex[i].w = 5;
+        vertex[i].w = INT_MAX;
     }
-    for (int i = 0; i < n; i++)
-    {
-        printf("Numer wierzchołka: %d\nPoprzednik: %d\nDystans: %d\n\n", i, vertex[i].p, vertex[i].w);
-    }
-    printf("-------------\n");
 
     bellman_ford(edges, 0, m, n, vertex);
 
