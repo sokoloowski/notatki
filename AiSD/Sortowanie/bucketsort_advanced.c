@@ -6,7 +6,7 @@ struct el_listy
     int value;
 };
 
-int sort(const int *tab, int n, int liczba_kubelkow, struct el_listy *element)
+int bucketsort(const int *tab, int n, int liczba_kubelkow, struct el_listy *element)
 {
     int poczatek_1[liczba_kubelkow + 1];
     int koniec_1[liczba_kubelkow + 1];
@@ -61,7 +61,7 @@ int main(void)
                        12, 1, 17, 2, 21, 56, 53, 20, 10, 15};
     struct el_listy wynik[20];
     
-    int w = sort(tablica, 20, 100, wynik);
+    int w = bucketsort(tablica, 20, 100, wynik);
 
     printf("Bucketsort - advanced\n");
     for (; w != -1; w = wynik[w].next)
