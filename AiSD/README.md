@@ -1,18 +1,18 @@
 ## Złożoność algorytmów sortujących
 
-$n$ - liczba elementów do posortowania,
-$k$ - liczba różnych elementów
+n - liczba elementów do posortowania,
+k - liczba różnych elementów
 
-| Nazwa algorytmu  |                    Złożoność                     |
-| :--------------: | :----------------------------------------------: |
-|    bąbelkowe     |                     $O(n^2)$                     |
-|    kubełkowe     |    $O(n^2)$, wymaga $O(k)$ dodatkowej pamięci    |
-| przez zliczanie  | $O(n + k)$, wymaga $O(n + k)$ dodatkowej pamięci |
-| przez kopcowanie |                  $O(n\log{n})$                   |
-| przez wstawianie |                     $O(n^2)$                     |
-|  przez scalanie  | $O(n\log{n})$, wymaga $O(n)$ dodatkowej pamięci  |
-|     szybkie      |    $\Theta(n\log{n})$, pesymistyczny $O(n^2)$    |
-| przez wybieranie |                     $O(n^2)$                     |
+| Nazwa algorytmu  |                  Złożoność                   |
+| :--------------: | :------------------------------------------: |
+|    bąbelkowe     |                    O(n²)                     |
+|    kubełkowe     |    O(n²), wymaga O(k) dodatkowej pamięci     |
+| przez zliczanie  | O(n + k), wymaga O(n + k) dodatkowej pamięci |
+| przez kopcowanie |                  O(n log n)                  |
+| przez wstawianie |                    O(n²)                     |
+|  przez scalanie  |  O(n log n), wymaga O(n) dodatkowej pamięci  |
+|     szybkie      |       Θ(n log n), pesymistyczny O(n²)        |
+| przez wybieranie |                    O(n²)                     |
 
 ## Porównanie złożoności obliczeniowych
 
@@ -20,7 +20,7 @@ $k$ - liczba różnych elementów
 
 ## Działanie algorytmów sortujących w praktyce
 
-### Dla $n = 100 000 000$ i wartości losowych:
+### Dla n = 100 000 000 i wartości losowych:
 
 |                     Algorytm | Czas wykonywania       |
 | ---------------------------: | :--------------------- |
@@ -30,7 +30,7 @@ $k$ - liczba różnych elementów
 | kubełkowe (tablica struktur) | 0.68s (32768 kubełków) |
 |                     heapsort | 55.69s                 |
 
-### Dla $n = 100 000 000$ i wartości posortowanych:
+### Dla n = 100 000 000 i wartości posortowanych:
 
 |                     Algorytm | Czas wykonywania       |
 | ---------------------------: | :--------------------- |
