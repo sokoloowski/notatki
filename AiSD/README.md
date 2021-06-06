@@ -14,6 +14,10 @@ $k$ - liczba różnych elementów
 |     szybkie      |    $\Theta(n\log{n})$, pesymistyczny $O(n^2)$    |
 | przez wybieranie |                     $O(n^2)$                     |
 
+## Porównanie złożoności obliczeniowych
+
+![Graf złożoności obliczeniowych](https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Comparison_computational_complexity.svg/1024px-Comparison_computational_complexity.svg.png)
+
 ## Działanie algorytmów sortujących w praktyce
 
 ### Dla $n = 100 000 000$ i wartości losowych:
