@@ -49,7 +49,12 @@ void dfs(struct edge *krawedzie, int u, int m, struct verticle *poprzednik, int 
 
 int main()
 {
-    struct edge krawedzie[6] = {{0, 1, 1}, {0, 4, 1}, {0, 3, 2}, {1, 2, 2}, {3, 2, 2}, {4, 3, 5}};
+    struct edge krawedzie[6] = {{0, 1, 1},
+                                {0, 4, 1},
+                                {0, 3, 2},
+                                {1, 2, 2},
+                                {3, 2, 2},
+                                {4, 3, 5}};
     int n = 5;
     int m = 6;
     struct verticle prev[n];
