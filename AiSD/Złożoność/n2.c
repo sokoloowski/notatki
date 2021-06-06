@@ -14,4 +14,5 @@ int main(void)
     printf("\n");
     printf("n^2 = %d\n", (int)pow(n, 2));
     printf("n = %d\nZłożoność = %d\n", n, total);
+    return 0;
 }

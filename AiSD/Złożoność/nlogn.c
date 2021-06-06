@@ -28,4 +28,5 @@ int main(void)
     printf("\n");
     printf("n log(n) = %lf\n", (log(n) / log(2)) * n);
     printf("n = %d\nZłożoność = %d\n", n, total);
+    return 0;
 }
