@@ -7,7 +7,7 @@ struct edge
     double w;
 };
 
-struct verticle
+struct vertex
 {
     int predecessor;
     double w;
@@ -30,7 +30,7 @@ double get(void)
     return 0;
 }
 
-void dfs(struct edge *krawedzie, int u, int m, struct verticle *poprzednik, int *odwiedzone)
+void dfs(struct edge *krawedzie, int u, int m, struct vertex *poprzednik, int *odwiedzone)
 {
     odwiedzone[u] = 1;
     for (int i = 0; i < m; i++)
@@ -57,7 +57,7 @@ int main()
                                 {4, 3, 5}};
     int n = 5;
     int m = 6;
-    struct verticle prev[n];
+    struct vertex prev[n];
     int odwiedzone[n];
     for (int i = 0; i < n; i++)
     {
