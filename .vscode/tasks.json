@@ -8,7 +8,8 @@
                 "-g",
                 "${file}",
                 "-o",
-                "${workspaceFolder}/build/${fileBasenameNoExtension}"
+                "${workspaceFolder}/build/${fileBasenameNoExtension}",
+                "-lm"
             ],
             "options": {
                 "cwd": "${workspaceFolder}"
@@ -29,7 +30,8 @@
                 "-g",
                 "${file}",
                 "-o",
-                "${workspaceFolder}/build/${fileBasenameNoExtension}.exe"
+                "${workspaceFolder}/build/${fileBasenameNoExtension}.exe",
+                "-lm"
             ],
             "options": {
                 "cwd": "${workspaceFolder}"
