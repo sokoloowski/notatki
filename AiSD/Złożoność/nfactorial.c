@@ -40,7 +40,7 @@ int main(void)
         int temp = list[index_1];
         list[index_1] = list[index_2];
         list[index_2] = temp;
-        total++;
+        printf("%dta iteracja: {%d, %d, %d}\n", ++total, list[0], list[1], list[2]);
     }
 
     printf("\n");
