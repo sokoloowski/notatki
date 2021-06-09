@@ -6,6 +6,10 @@
     - [Definicja](#definicja-1)
     - [Przykłady](#przykłady)
   - [Rozkład prawdopodobieństwa](#rozkład-prawdopodobieństwa)
+  - [Rozkłady dyskretne](#rozkłady-dyskretne)
+    - [Definicja](#definicja-2)
+    - [Rozkład rzutu kością](#rozkład-rzutu-kością)
+  - [Rozkład Bernoulliego](#rozkład-bernoulliego)
 
 # Rachunek Prawdopodobieństwa i Statystyka
 
@@ -41,3 +45,20 @@ Rozkładem prawdopodobieństwa zmiennej losowej $X$ nazywamy prawdopodobieństwo
 $$\mu{x}(B) = P(X^{-1}(B)),\ B\in\mathcal{B}(R)$$
 
 **Uwaga:** Zmienne losowe równe z prawdopodobieństwem 1 są nierozróżnialne z punktu widzenia teorii.
+
+## Rozkłady dyskretne
+
+### Definicja
+
+Zmienna losowa $X$ ma rozkład dyskretny, jeśli istnieje taki zbiór przeliczalny $\mathcal{S}\R$, że $\mu{x}(\mathcal{S}) = 1$.
+
+### Rozkład rzutu kością
+
+Niech $X$ będzie wynikiem rzutu symetryczną kostką. Wtedy
+$$\mu{x}(\{i\})=P(X=i)=\frac{1}{6}\text{, gdy }i=1,2,\dots,6$$
+
+## Rozkład Bernoulliego
+
+Niech $X$ oznacza liczbę sukcesów w schemacjie Bernoulliego $n$ z prawdopodobieństwem sukcesu $p$ w pojedynczym doświadczeniu. Prawdopodobieństwo uzyskania dokładnie $K$ sukcesów wynosi
+$$p_k=P(X=k)={n \choose k}p^k(1-p)^{n-k}$$
+Mówimy, że zmienna losowa ma rozkład Bernoulliego.
