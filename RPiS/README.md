@@ -26,6 +26,20 @@ Spis treści
     - [Przypadek dyskretny](#przypadek-dyskretny-1)
   - [Własności wartości oczekiwanej](#własności-wartości-oczekiwanej)
     - [Twierdzenie](#twierdzenie-2)
+    - [Stwierdzenie](#stwierdzenie)
+  - [Wariancja](#wariancja)
+    - [Twierdzenie](#twierdzenie-3)
+  - [Momenty](#momenty)
+  - [Kowariancja](#kowariancja)
+  - [Współczynnik korelacji](#współczynnik-korelacji)
+    - [Twierdzenie](#twierdzenie-4)
+  - [Rozkłady](#rozkłady)
+    - [Rozkłady brzegowe](#rozkłady-brzegowe)
+  - [Typy rozkładów wektora losowego](#typy-rozkładów-wektora-losowego)
+    - [Rozkład dyskretny](#rozkład-dyskretny)
+    - [Rozkład ciągły](#rozkład-ciągły)
+  - [Dystrybuanta wektora losowego](#dystrybuanta-wektora-losowego)
+  - [Wartość oczekiwana wektora losowego](#wartość-oczekiwana-wektora-losowego)
 
 # Rachunek Prawdopodobieństwa i Statystyka
 
@@ -58,22 +72,22 @@ $$
 
 ## Rozkład prawdopodobieństwa
 
-Rozkładem prawdopodobieństwa zmiennej losowej $X$ nazywamy prawdopodobieństwo $\mu_x$, określone na zbiorach borelowskich $\R$ zależnością
+Rozkładem prawdopodobieństwa zmiennej losowej $X$ nazywamy prawdopodobieństwo $\mu_X$, określone na zbiorach borelowskich $\R$ zależnością
 $$
-\mu_x(B) = P(X^{-1}(B)),\ B\in\mathcal{B}(R)
+\mu_X(B) = P(X^{-1}(B)),\ B\in\mathcal{B}(R)
 $$
 
 **Uwaga:** Zmienne losowe równe z prawdopodobieństwem 1 są nierozróżnialne z punktu widzenia teorii.
 
 ## Rozkłady dyskretne
 
-Zmienna losowa $X$ ma rozkład dyskretny, jeśli istnieje taki zbiór przeliczalny $\mathcal{S}\R$, że $\mu_x(\mathcal{S}) = 1$.
+Zmienna losowa $X$ ma rozkład dyskretny, jeśli istnieje taki zbiór przeliczalny $\mathcal{S}\R$, że $\mu_X(\mathcal{S}) = 1$.
 
 ### Rozkład rzutu kością
 
 Niech $X$ będzie wynikiem rzutu symetryczną kostką. Wtedy
 $$
-\mu_x(\{i\})=P(X=i)=\frac{1}{6}\text{, gdy }i=1,2,\dots,6
+\mu_X(\{i\})=P(X=i)=\frac{1}{6}\text{, gdy }i=1,2,\dots,6
 $$
 
 ## Rozkład Bernoulliego
@@ -93,7 +107,7 @@ Wykonujemy co sekundę doświadczenia Bernoulliego, aż do chwili otrzymania suk
 
 Zmienna losowa $Y$ ma rozkład ciągły, gdy istnieje taka funkcja $f:\R\rightarrow\R$, że
 $$
-\mu_Y(A)=\int_Af(x)dx, a\in\mathcal{B}(\R^n)
+\mu_Y(A)=\int_Af(x)\mathrm{d}x, a\in\mathcal{B}(\R^n)
 $$
 
 Funkcję $f$ nazywamy gęstością rozkładu $\mu_Y$.
@@ -176,12 +190,12 @@ W przeciwnym razie powiemy, że zmienna losowa nie ma wartości oczekiwanej.
 
 Załóżmy, że zmienna losowa $X$ ma rozkład ciągły z gęstością $f$. Mówimy, że istnieje wartość oczekiwana, gdy
 $$
-\int_{-\infin}^{\infin}|x|f(x)dx\lt\infin
+\int_{-\infin}^{\infin}|x|f(x)\mathrm{d}x\lt\infin
 $$
 
 Wartością oczekiwaną nazwiemy wtedy liczbę
 $$
-\mathcal{E}X=\int_{-\infin}^{\infin}xf(x)dx
+\mathcal{E}X=\int_{-\infin}^{\infin}xf(x)\mathrm{d}x
 $$
 
 ## Wartość oczekiwana dla funkcji od zmiennej losowej
@@ -208,3 +222,87 @@ $$
 \mathcal{E}(aX+bY)=a\mathcal{E}X+b\mathcal{E}Y
 $$
 5. jeśli $X=1_A$, to $\mathcal{E}X=P(A)$
+
+### Stwierdzenie
+
+1. Jeżeli $X$ jest zmienną losową przyjmującą wartości całkowite nieujemne, to $\mathcal{E}X=\sum_{n=1}^{\infin}P(X\ge n)$.
+2. Jeśli $X\ge0$, to
+$$
+\mathcal{E}X=\int_0^\infin(1-F_X(t))\mathrm{d}t\int_0^\infin P(X>t)\mathrm{d}t
+$$
+przy czym istnienie jednego z tych wyrażeń implikuje istnienie pozostałych i ich równość.
+
+## Wariancja
+
+Załóżmy, że $\mathcal{E}X=m$. Jeśli $\mathcal{E}((X-m)^2)<\infin$, to tę liczbę nazwiemy wariancją zmiennej losowej $X$ o wartościach rzeczywistych i oznaczamy
+$$
+\mathcal{D}^2X=\mathcal{E}((X-m)^2)\\[0.5em]
+\mathcal{D}^2X=\mathcal{E}X^2-(\mathcal{E}X)^2
+$$
+
+### Twierdzenie
+
+Jeśli $X$ jest zmienną losową, dla której $\mathcal{E}X^2<\infin$, to istnieje $\mathcal{D}^2X$ oraz:
+
+1. $\mathcal{D}^2X\ge0$; $\mathcal{D}^2X=0$ wtedy i tylko wtedy, gdy $P(X=c)=1$ dla pewnej stałej $c$
+
+## Momenty
+
+Momentem absolutnym rzędy $r>0$ nazywamy liczbę $\mathcal{E}|X|^r$, a momentem zwykłym liczbę $\mathcal{E}(X^r)$. Ostatnie wyrażenie ma zawsze sens dla liczb naturalnych. Liczbę $\mathcal{E}(X-\mathcal{E}X)^r$ nazywamy momentem centralnym.
+
+## Kowariancja
+
+Kowariancją całkowalnych zmiennych losowych $X$ i $Y$, spełniających warunek $\mathcal{E}|XY|<\infin$, nazywamy wielkość
+$$
+\text{cov}(X,\ Y)=\mathcal{E}((X-\mathcal{E}X)(Y-\mathcal{E}Y))\\[0.5em]
+\text{cov}(X,\ Y)=\mathcal{E}(XY)-\mathcal{E}X\mathcal{E}Y
+$$
+
+## Współczynnik korelacji
+
+Współczynnik korelacji definiujemy jako
+$$
+\rho(X,\ Y)=\frac{\text{cov}(X,\ Y)}{\sqrt{(\mathcal{D}^2X)(\mathcal{D}^2Y)}},\ \mathcal{D}^2X,\ \mathcal{D}^2Y>0
+$$
+
+### Twierdzenie
+
+Jeżeli zmienne losowe $X_1,\dots,X_n$ mają wariancję, to istnieje wariancja ich sumy i
+$$
+\mathcal{D}^2(X_1+\dots+X_n)=\sum_{i=1}^{n}\mathcal{D}^2X_i+2\sum_{1\le i>j\le n}\text{cov}(X_i,\ X_j)
+$$
+
+## Rozkłady
+
+Rozkładem prawdopodonieństwa zmiennej losowej $X$ o wartościach w $\R^n$ nazywamy rozkład prawdopodobieństwa $\mu_X$, określony na $\mathcal{B}(\R^n)$ zależnością
+$$
+\mu_X(B)=P(X^{-1}(B)),\ B\in\mathcal{B}(\R^n)
+$$
+
+### Rozkłady brzegowe
+
+$P(X_j\in B)=P(X_1\in\R,\dots,X_{j-1}\in\R,X_j\in\R,X_{j+1}\in\R,\dots,X_n\in\R)$
+
+## Typy rozkładów wektora losowego
+
+### Rozkład dyskretny
+
+Wektor losowy $(X,\ Y)$ nazywamy dyskretnym, jeśli istnieje zbiór przeliczalny $S\subset\R^2$, dla którego $\mu_X(S)=1$
+
+### Rozkład ciągły
+
+Mówimy, że wektor losowy $(X,\ Y)$ ma rozkład ciągły, gdy istnieje gęstość, czyli funkcja $f:\R^2\rightarrow\R$ taka, że
+$$
+P((X,\ Y)\in A)=\iint_A f(x,\ y)\mathrm{d}x\mathrm{d}y,\ A\in\mathcal{B}(\R^2)
+$$
+
+## Dystrybuanta wektora losowego
+
+Dystrybuantą wektora losowego $(X,\ Y)$ o wartościach $\R^2$ nazywamy funkcję $F_{(X,\ Y)}:\R^2\rightarrow\R$ określoną zależnością
+$$
+F_{(X,\ Y)}(t,\ s)=P(X\le t,\ Y\le s)=\mu_X((-\infin,\ t]\times(-\infin,\ s])
+$$
+
+## Wartość oczekiwana wektora losowego
+
+Wartością oczekiwaną wektora losowego $X=(X_1,\dots,X_n)$ o wartościach w $\R^n$ nazywamy wektor $\mathcal{E}X=(\mathcal{E}X_1,\dots,\mathcal{E}X_n)$, o ile wszystkie współrzędne mają wartość oczekiwaną.
