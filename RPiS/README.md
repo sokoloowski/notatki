@@ -40,6 +40,20 @@ Spis treści
     - [Rozkład ciągły](#rozkład-ciągły)
   - [Dystrybuanta wektora losowego](#dystrybuanta-wektora-losowego)
   - [Wartość oczekiwana wektora losowego](#wartość-oczekiwana-wektora-losowego)
+  - [Niezależność zmiennych losowych](#niezależność-zmiennych-losowych)
+    - [Niezależność rozkładów dyskretnych](#niezależność-rozkładów-dyskretnych)
+    - [Niezależność rozkładów ciągłych](#niezależność-rozkładów-ciągłych)
+  - [Niezależność funkcji od niezależnych zmiennych losowych](#niezależność-funkcji-od-niezależnych-zmiennych-losowych)
+  - [Wartość oczekiwana iloczynu zmiennych losowych](#wartość-oczekiwana-iloczynu-zmiennych-losowych)
+  - [Wariancja sumy niezależnych zmiennych losowych](#wariancja-sumy-niezależnych-zmiennych-losowych)
+  - [Sploty](#sploty)
+    - [Splot zmiennych dyskretnych](#splot-zmiennych-dyskretnych)
+    - [Splot zmiennych ciągłych](#splot-zmiennych-ciągłych)
+  - [Nieskończone ciągi zmiennych niezależnych](#nieskończone-ciągi-zmiennych-niezależnych)
+  - [Rozkład warunkowy](#rozkład-warunkowy)
+    - [Rozkład warunkowy dla zmiennej dyskretnej](#rozkład-warunkowy-dla-zmiennej-dyskretnej)
+    - [Rozkład warunkowy dla zmiennej ciągłej](#rozkład-warunkowy-dla-zmiennej-ciągłej)
+  - [Warunkowa wartość oczekiwana](#warunkowa-wartość-oczekiwana)
 
 # Rachunek Prawdopodobieństwa i Statystyka
 
@@ -200,13 +214,13 @@ $$
 
 ## Wartość oczekiwana dla funkcji od zmiennej losowej
 
-Niech $\phi:\R\rightarrow\R$ będzie dowolną funkcją.
+Niech $\varphi:\R\rightarrow\R$ będzie dowolną funkcją.
 
 ### Przypadek dyskretny
 
-Jeśli zmienna losowa $X$ ma rozkład dyskretny $\{(x_i,\ p_i):i\in I\}$, to wartość oczekiwana $\phi(X)$ istnieje wtedy i tylko wtedy, gdy zbieżny jest szereg $\sum_{i\in I}|\phi(x_i)|p_i$. Wtedy
+Jeśli zmienna losowa $X$ ma rozkład dyskretny $\{(x_i,\ p_i):i\in I\}$, to wartość oczekiwana $\varphi(X)$ istnieje wtedy i tylko wtedy, gdy zbieżny jest szereg $\sum_{i\in I}|\varphi(x_i)|p_i$. Wtedy
 $$
-\mathcal{E}\phi(X) = \sum_{i\in I}\phi(x_i)p_i
+\mathcal{E}\varphi(X) = \sum_{i\in I}\varphi(x_i)p_i
 $$
 
 ## Własności wartości oczekiwanej
@@ -306,3 +320,97 @@ $$
 ## Wartość oczekiwana wektora losowego
 
 Wartością oczekiwaną wektora losowego $X=(X_1,\dots,X_n)$ o wartościach w $\R^n$ nazywamy wektor $\mathcal{E}X=(\mathcal{E}X_1,\dots,\mathcal{E}X_n)$, o ile wszystkie współrzędne mają wartość oczekiwaną.
+
+## Niezależność zmiennych losowych
+
+Zmienne losowe $X_1,\dots,X_n$ o wartościach w $\R$, określone na $(\Omega,\ \mathcal{F},\ P)$ nazywamy niezależnymi, gdy dla każdego ciągu zbiorów borelowskich $B_1,\dots,B_n$ zachodzi równość
+$$
+P(X_1\in B_1,\ X_2\in B_2,\dots,\ X_n\in B_n)=P(X_1\in B_1)\cdot\ \dots\ \cdot P(X_n\in B_n)
+$$
+
+### Niezależność rozkładów dyskretnych
+
+Zmienne losowe $X_1,\dots,X_n$ o rozkładach dyskretnych są niezależne wtedy i tylko wtedy, gdy dla każdego ciągu $x_1,\ x_2,\dots,\ x_n$, gdzie $P(X_i=x_i)>0$, $i=1,\dots,n$
+$$
+P(X_1=x_1,\dots,X_n=x_n)=P(X_1=x_1)\cdot\ \dots\ \cdot P(X_n=x_n)
+$$
+
+### Niezależność rozkładów ciągłych
+
+Jeśli $X_1,\dots,X_n$ są zmiennymi losowymi o rozkładach ciągłych z gęstościami odpowiednio $g_1,\dots,g_n$, to zmienne te są niezależne wtedy i tylko wtedy, gdy $\mu_{(X_1,\dots,X_n)}$ jest rozkładem ciągłym z gęstością
+$$
+g(x_1,\dots,x_n)=g_1(x_1)\cdot\ \dots\ \cdot g_n(x_n)
+$$
+
+## Niezależność funkcji od niezależnych zmiennych losowych
+
+Załóżmy, że zmienne losowe
+$$
+X_{1,1},\ X_{1,2},\dots,X_{1,k_1},\ X_{2,1},\dots,X_{2,k_2},\dots,X_{n,1},\dots,X_{n,k_n}
+$$
+są niezależne. Niech $\varphi_j:\R^{k_j}\rightarrow\R$ będą takimi funkcjami, że $Y_j=\varphi_j(X_{j,1},\dots,X_{j,k_j})$, $j=1,\ 2,\dots,\ n$ są zmiennymi losowymi. Wówczas zmienne losowe $Y_1,\dots,Y_n$ są niezależne
+
+## Wartość oczekiwana iloczynu zmiennych losowych
+
+Jeśli $X_1,\dots,X_n$ są niezależnymi zmiennymi losowymi, które mają wartość oczekiwaną, to istnieje wartość oczekiwana iloczynu $X_1\cdot\ \dots\ \cdot X_n$ i
+$$
+\mathcal{E}(X_1\cdot\ \dots\ \cdot X_n)=\mathcal{E}X_1\cdot\ \dots\ \cdot \mathcal{E}X_n
+$$
+
+## Wariancja sumy niezależnych zmiennych losowych
+
+Jeżeli $X_1,\dots,X_n$ są niezależnymi zmiennymi losowymi, mającymi wariancję, to istnieje wariancja sumy i
+$$
+\mathcal{D}^2(\sum_{i=1}^n X_i)=\sum_{i=1}^n \mathcal{D}^2X_i
+$$
+
+## Sploty
+
+### Splot zmiennych dyskretnych
+
+Splotem rozkładów zmiennych losowych nazywamy rozkład sumy zmiennych losowych niezależnych. Jeżeli $X$ i $Y$ są zmiennymi losowymi o rozkładach dyskretnych, to splot tych dwóch zmiennych wyraża się wzorem
+$$
+P(X+Y=s)=\sum_{s_1,s_2:s_1+s_2=s}P(X=s_1,\ Y=s_2)=\sum_{s_1,s_2:s_1+s_2=s}P(X=s_1)(Y=s_2)
+$$
+
+### Splot zmiennych ciągłych
+
+Rozkład sumy niezależnych zmiennych losowych o rozkładach ciągłych jest zmienną losową o rozkładzie ciągłym z gęstością będącą splotem gęstości
+$$
+(g_1\cdot g_2)(z)=\int_{-\infin}^{\infin}g_1(z-y)g_2(y)\mathrm{d}y
+$$
+
+## Nieskończone ciągi zmiennych niezależnych
+
+Zmienne losowe $(X_\alpha)_{\alpha\in\Lambda}$ określone na tej samej przestrzeni probabilistycznej nazywamy niezależnymi, gdy dla każdego skończonego ciągu indeksów $i_1,\dots,i_n\in\Lambda$, $n\in\N$, zmienne losowe $X_{i_1},\dots,X_{i_n}$ są niezależne.
+
+## Rozkład warunkowy
+
+### Rozkład warunkowy dla zmiennej dyskretnej
+
+Dla wektora $(X,\ Y)$ o rozkładzie dyskretnym i $P(Y=y)>0$ możemy wyznaczyć prawdopodobieństwo warunkowe
+$$
+P(X\in A|Y=y)=\frac{P(X\in A,\ Y=y)}{P(Y=y)}=\frac{\sum_{i:x_i\in A}P(X=x_i, Y=y)}{P(Y=y)}
+$$
+
+### Rozkład warunkowy dla zmiennej ciągłej
+
+Gęstością rozkładu warunkowego $X$ pod warunkiem $Y=y$ nazywamy funkcję określoną dla $x\in\R$ wzorem
+$$
+f_{X|Y}(x|y)=\begin{cases}
+  \frac{f(x,\ y)}{f_Y(y)}\text{, o ile }f_Y(y)>0\\[0.5em]
+  g(x)\text{, w pozostałych przypadkach}
+\end{cases}
+$$
+gdzie $F_Y(y)=\int_{-\infin}^{\infin}f(x,\ y)\mathrm{d}x$ jest gęstością rozkładu brzegowego $Y$, a $g$ dowolną ustaloną gęstością
+
+## Warunkowa wartość oczekiwana
+
+Dla danego rozkładu warunkowego zmiennej $Y$ można wyznaczyć wartość oczekiwaną takiego rozkładu. Nazywamy ją warunkową wartością oczekiwaną $Y$ i oznaczamy $\mathcal{E}(Y|X=x)$. Gdy rozkład jest dyskretny, to
+$$
+\mathcal{E}(Y|X=x)=\sum_jy_jP(Y=y_j|X=x)
+$$
+a gdy jest ciągły, to
+$$
+\mathcal{E}(Y|X=x)=\int_{-\infin}^{\infin}yf_{Y|X}(y|x)\mathrm{d}y
+$$
