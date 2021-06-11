@@ -3,7 +3,7 @@
         {
             "type": "cppbuild",
             "label": "Linux",
-            "command": "/usr/bin/gcc",
+            "command": "/usr/bin/g++",
             "args": [
                 "-g",
                 "${file}",
@@ -25,7 +25,7 @@
         {
             "type": "cppbuild",
             "label": "Windows",
-            "command": "gcc.exe",
+            "command": "g++.exe",
             "args": [
                 "-g",
                 "${file}",
