@@ -203,7 +203,7 @@ $$
 
 ### Wzór łańcuchowy
 
-Jeżeli zdarzenia $A_1,\ A_2,\dots,A_n$ spełniają warunek $P(A_1\cap\dots\cap A_n)>0$ to
+Jeżeli zdarzenia $A_1,\ A_2,\dots,A_n$ spełniają warunek $P(A_1\cap\dots\cap A_{n-1})>0$ to
 $$
 P(A_1\cap\dots\cap A_n)=P(A_1)\cdot P(A_2|A_1)\dots P(A_n|A_1\cap\dots\cap A_{n-1})
 $$
@@ -575,7 +575,7 @@ $$
 
 Splotem rozkładów zmiennych losowych nazywamy rozkład sumy zmiennych losowych niezależnych. Jeżeli $X$ i $Y$ są zmiennymi losowymi o rozkładach dyskretnych, to splot tych dwóch zmiennych wyraża się wzorem
 $$
-P(X+Y=s)=\sum_{s_1,s_2:s_1+s_2=s}P(X=s_1,\ Y=s_2)=\sum_{s_1,s_2:s_1+s_2=s}P(X=s_1)(Y=s_2)
+P(X+Y=s)=\sum_{s_1,s_2:s_1+s_2=s}P(X=s_1,\ Y=s_2)=\sum_{s_1,s_2:s_1+s_2=s}P(X=s_1)\cdot P(Y=s_2)
 $$
 
 ### Splot zmiennych ciągłych
