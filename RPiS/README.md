@@ -54,6 +54,26 @@ Spis treści
     - [Rozkład warunkowy dla zmiennej dyskretnej](#rozkład-warunkowy-dla-zmiennej-dyskretnej)
     - [Rozkład warunkowy dla zmiennej ciągłej](#rozkład-warunkowy-dla-zmiennej-ciągłej)
   - [Warunkowa wartość oczekiwana](#warunkowa-wartość-oczekiwana)
+    - [Wartość oczekiwana rozkładu warunkowego](#wartość-oczekiwana-rozkładu-warunkowego)
+    - [Twierdzenie](#twierdzenie-5)
+    - [Warunkowa wartość oczekiwana zmiennej losowej](#warunkowa-wartość-oczekiwana-zmiennej-losowej)
+  - [Nierówność Czebyszewa](#nierówność-czebyszewa)
+    - [Nierówność Markowa](#nierówność-markowa)
+    - [Nierówność Czebyszewa-Bienaymé](#nierówność-czebyszewa-bienaymé)
+    - [Wykładnicza nierówność Czebyszewa](#wykładnicza-nierówność-czebyszewa)
+  - [Prawa Wielkich Liczb](#prawa-wielkich-liczb)
+    - [Prawo Wielkich Liczb Bernoulliego](#prawo-wielkich-liczb-bernoulliego)
+    - [Słabe Prawo Wielkich Liczb (SPWL)](#słabe-prawo-wielkich-liczb-spwl)
+    - [Mocne Prawo Wielkich Liczb Bernoulliego](#mocne-prawo-wielkich-liczb-bernoulliego)
+    - [Twierdzenie Kołmogorowa](#twierdzenie-kołmogorowa)
+    - [Mocne Prawo Wielkich Liczb (MPWL) Kołmogorowa](#mocne-prawo-wielkich-liczb-mpwl-kołmogorowa)
+  - [Twierdzenia Poissona](#twierdzenia-poissona)
+    - [Twierdzenie Poissona](#twierdzenie-poissona)
+    - [Twierdzenie](#twierdzenie-6)
+  - [Rozkład Gaussa](#rozkład-gaussa)
+  - [Centralne Twierdzenie Graniczne (CTG)](#centralne-twierdzenie-graniczne-ctg)
+    - [Wersja najprostrza](#wersja-najprostrza)
+    - [Berry-Esséen](#berry-esséen)
 
 # Rachunek Prawdopodobieństwa i Statystyka
 
@@ -406,6 +426,8 @@ gdzie $F_Y(y)=\int_{-\infin}^{\infin}f(x,\ y)\mathrm{d}x$ jest gęstością rozk
 
 ## Warunkowa wartość oczekiwana
 
+### Wartość oczekiwana rozkładu warunkowego
+
 Dla danego rozkładu warunkowego zmiennej $Y$ można wyznaczyć wartość oczekiwaną takiego rozkładu. Nazywamy ją warunkową wartością oczekiwaną $Y$ i oznaczamy $\mathcal{E}(Y|X=x)$. Gdy rozkład jest dyskretny, to
 $$
 \mathcal{E}(Y|X=x)=\sum_jy_jP(Y=y_j|X=x)
@@ -414,3 +436,133 @@ a gdy jest ciągły, to
 $$
 \mathcal{E}(Y|X=x)=\int_{-\infin}^{\infin}yf_{Y|X}(y|x)\mathrm{d}y
 $$
+
+### Twierdzenie
+
+Gdy istnieje $\mathcal{E}Y$, to istnieje $\mathcal{E}(Y|X=x)$
+
+### Warunkowa wartość oczekiwana zmiennej losowej
+
+Warunkową wartość oczekiwaną zmiennej losowej $Y$ pod warunkiem zmiennej losowej $X$, którą będziemy oznaczać $\mathcal{E}(Y|X)$, definiujemy wzorem
+$$
+\mathcal{E}(Y|X)=m(X)
+$$
+gdzie $m(x)=\mathcal{E}(Y|X=x)$.
+
+## Nierówność Czebyszewa
+
+Niech $X$ będzie nieujemną zmienną losową. Wtedy dla dowolnego $\epsilon>0$
+$$
+P(X\ge\epsilon)\le\frac{\mathcal{E}X}{\epsilon}
+$$
+
+### Nierówność Markowa
+
+Niech $p>0$. Wtedy dla dowolnego $\epsilon>0$
+$$
+P(|X|\ge\epsilon)\le\frac{\mathcal{E}|X|^p}{\epsilon^p}
+$$
+
+### Nierówność Czebyszewa-Bienaymé
+
+Dla dowolnego $\epsilon>0$
+$$
+P(|X-\mathcal{E}X|\ge\epsilon)\le\frac{\mathcal{D}^2X}{\epsilon^2}
+$$
+
+### Wykładnicza nierówność Czebyszewa
+
+Jeśli $\mathcal{E}e^{pX}<\infin$ dla pewnego $p>0$, to dla $\lambda\in[0,\ p]$
+$$
+P(X\ge\epsilon)\le\frac{\mathcal{E}|X|^p}{\epsilon^p}
+$$
+dla dowolnego $\epsilon$
+
+## Prawa Wielkich Liczb
+
+### Prawo Wielkich Liczb Bernoulliego
+
+Jeśli $S_n$ jest liczbą sukcesów w schemacie Bernoulliego $n$ prób z prawdopodobieństwem sukcesu w pojedynczej próbie równym $p$, to dla każdego $\epsilon>0$
+$$
+\lim_{n\rightarrow\infin}P(|\frac{S_n}{n}-p|\le\epsilon)=1
+$$
+
+### Słabe Prawo Wielkich Liczb (SPWL)
+
+Niech $(X_n)_n$ będzie ciągiem zmiennych losowych takich, że:
+
+1. $\lim_{n\rightarrow\infin}\frac{\mathcal{D}^2S_n}{n^2}=0$
+2. $X_n$ są parami nieskorelowane i mają wspólnie ograniczone wariancje
+
+Niech $S_n=X_1+\dots+X_n$, gdzie $n=1,\ 2,\dots$ Wtedy $(X_n)_n$ spełnia SPWL, czyli dla każdego $\epsilon>0$
+$$
+\lim_{n\rightarrow\infin}P(|\frac{S_n-\mathcal{E}S_n}{n}| >\epsilon)=0
+$$
+
+### Mocne Prawo Wielkich Liczb Bernoulliego
+
+Oznaczmy przez $S_n$ liczbę sukcesów w schemacie Bernoulliego $n$ prób z prawdopodobieństwem sukcesu w pojedynczej próbie równym $p$. Wtedy dla każdego $\epsilon>0$
+$$
+\lim_{n\rightarrow\infin}P(\sup_{k\ge n}|\frac{S_k}{k}-p|\le\epsilon)=1
+$$
+
+### Twierdzenie Kołmogorowa
+
+Jeśli $(X_n)_{n=1}^\infin$ jest ciągiem niezależnych zmiennych losowych takich, że $\mathcal{D}^2X_n<\infin$, gdzie $n=1,\ 2,\dots$, przy czym
+$$
+\sum_{n=1}^{\infin}\frac{\mathcal{D}^2X_n}{n^2}<0
+$$
+to z prawdopodobieństwem 1
+$$
+\lim_{n\rightarrow\infin}\frac{S_n-\mathcal{E}S_n}{n}=0
+$$
+
+### Mocne Prawo Wielkich Liczb (MPWL) Kołmogorowa
+
+Jeżeli $(X_n)_{n=1}^\infin$ jest ciągiem niezależnych zmiennych o jednakowym rozkładzie, $\mathcal{E}|X_1|<\infin$, $(X_n)_n$ spełnia MPWL, czyli
+$$
+\lim_{n\rightarrow\infin}\frac{S_n}{n}=\mathcal{E}X_1
+$$
+z prawdopodobieństwem 1
+
+## Twierdzenia Poissona
+
+### Twierdzenie Poissona
+
+Jeśli $n\rightarrow\infin$, $p_n\rightarrow0$ i $np_n\rightarrow\lambda>0$, to
+$$
+{n\choose{k}}P_n^k(1-p_n)^n-k\xrightarrow[{n\rightarrow\infin}]{}\frac{\lambda^k}{k!}e^{-\lambda}
+$$
+
+### Twierdzenie
+
+Niech zmienna losowa $S_n$ ma rozkład Bernoulliego z parametrami $n$, $p$ i niech $\lambda=np$. Wtedy dla każdego zbioru $B\subset\{0,1,2,\dots\}$ mamy
+$$
+|P(S_n\in B)-\sum_{k\in B}\frac{\lambda^k}{k!}e^{-\lambda}|\le\frac{\lambda^2}{n}
+$$
+
+## Rozkład Gaussa
+
+$\mathcal{N}(0,\ 1)$ ma gęstość
+$$
+\varphi(x)=\frac{1}{\sqrt{2\pi}}e^{\frac{x^2}{2}}
+$$
+
+Jeśli zmienna losowa $X$ ma rozkład $\mathcal{N}(0,\ 1)$, to zmienna losowa $\sigma X+m$, gdzie $\sigma>0$ ma rozkład $\mathcal{N}(m,\ \sigma^2)$ o gęstości $\varphi_{m,\sigma}(x)=\frac{1}{\sigma\sqrt{2\pi}}e^{\frac{-(x-m)^2}{2\sigma^2}}$
+
+## Centralne Twierdzenie Graniczne (CTG)
+
+### Wersja najprostrza
+
+Niech $X,\ X_1,\ X_2,\dots$ będą niezależnymi zmiennymi losowymi o tym samym rozkładzie, niech $\mathcal{E}X=m$ i $\mathcal{D}^2X=\sigma>0$. Wtedy dla każdego $t$
+$$
+P(\frac{X_1+\dots+X_n-nm}{\sigma\sqrt{n}})\xrightarrow[{n\rightarrow\infin}]{}\Phi(t)
+$$
+
+### Berry-Esséen
+
+Jeśli $(X_n)$ jest ciągiem niezależnych zmiennych losowych o tym samym rozkładzie i $\mathcal{E}|X_1|^3<\infin$, $S_n\X_1+\dots+X_n$, $n=1,\ 2,\dots$, to
+$$
+\sup_{t\in\R}|P(\frac{S_n-\mathcal{E}S_n}{\sqrt{\mathcal{D}^2S_n}})-\Phi(t)|\le C\frac{\mathcal{E}|X_1-\mathcal{E}X_1|^3}{\sigma^3\sqrt{n}}
+$$
+gdzie $\sigma=\sqrt{\mathcal{D}^2X_1}$, $\frac{1}{\sqrt{2\pi}}\le C<\frac{4}{5}$
