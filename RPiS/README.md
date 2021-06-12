@@ -1,9 +1,29 @@
-Spis treści
+<details>
+<summary>Spis treści</summary>
+
 - [Rachunek Prawdopodobieństwa i Statystyka](#rachunek-prawdopodobieństwa-i-statystyka)
-  - [Lemat Borela-Cantelliego](#lemat-borela-cantelliego)
+  - [Aksjomatyczna definicja prawdopodobieństwa](#aksjomatyczna-definicja-prawdopodobieństwa)
+  - [Co, gdy zdarzenia nie są równie prawdopodobne](#co-gdy-zdarzenia-nie-są-równie-prawdopodobne)
+  - [Podstawowe własności prawdopodobieństwa](#podstawowe-własności-prawdopodobieństwa)
+  - [Klasyczna definicja prawdopodobieństwa](#klasyczna-definicja-prawdopodobieństwa)
+    - [Przeliczalny zbiór zdarzeń elementarnych](#przeliczalny-zbiór-zdarzeń-elementarnych)
+    - [Paradoks Bertranda](#paradoks-bertranda)
+    - [Subaddytywność prawdopodobieństwa](#subaddytywność-prawdopodobieństwa)
+    - [Wzór włączeń i wyłączeń](#wzór-włączeń-i-wyłączeń)
+    - [Twierdzenie o ciągłości](#twierdzenie-o-ciągłości)
+  - [Prawdopodobieństwo warunkowe](#prawdopodobieństwo-warunkowe)
+    - [Wzór łańcuchowy](#wzór-łańcuchowy)
+  - [Prawdopodobieństwo całkowite](#prawdopodobieństwo-całkowite)
+    - [Rozbicie przestrzeni](#rozbicie-przestrzeni)
+    - [Wzór Bayesa](#wzór-bayesa)
+  - [Niezależność zdarzeń](#niezależność-zdarzeń)
+    - [Niezależność wielu zdarzeń](#niezależność-wielu-zdarzeń)
+    - [Własności](#własności)
+  - [Schemat Bernoulliego](#schemat-bernoulliego)
     - [Twierdzenie](#twierdzenie)
+  - [Lemat Borela-Cantelliego](#lemat-borela-cantelliego)
+    - [Twierdzenie](#twierdzenie-1)
   - [Zmienna losowa](#zmienna-losowa)
-    - [Przykłady](#przykłady)
   - [Rozkład prawdopodobieństwa](#rozkład-prawdopodobieństwa)
   - [Rozkłady dyskretne](#rozkłady-dyskretne)
     - [Rozkład rzutu kością](#rozkład-rzutu-kością)
@@ -14,10 +34,9 @@ Spis treści
     - [Stwierdzenie 2](#stwierdzenie-2)
     - [Rozkład jednostajny](#rozkład-jednostajny)
   - [Rozkład wykładniczy](#rozkład-wykładniczy)
-    - [Przykłady](#przykłady-1)
   - [Dystrybuanta](#dystrybuanta)
-    - [Własności](#własności)
-    - [Twierdzenie](#twierdzenie-1)
+    - [Własności](#własności-1)
+    - [Twierdzenie](#twierdzenie-2)
   - [Działania na rozkładzie zmiennej losowej](#działania-na-rozkładzie-zmiennej-losowej)
   - [Wartość oczekiwana](#wartość-oczekiwana)
     - [Przypadek dyskretny](#przypadek-dyskretny)
@@ -25,14 +44,14 @@ Spis treści
   - [Wartość oczekiwana dla funkcji od zmiennej losowej](#wartość-oczekiwana-dla-funkcji-od-zmiennej-losowej)
     - [Przypadek dyskretny](#przypadek-dyskretny-1)
   - [Własności wartości oczekiwanej](#własności-wartości-oczekiwanej)
-    - [Twierdzenie](#twierdzenie-2)
+    - [Twierdzenie](#twierdzenie-3)
     - [Stwierdzenie](#stwierdzenie)
   - [Wariancja](#wariancja)
-    - [Twierdzenie](#twierdzenie-3)
+    - [Twierdzenie](#twierdzenie-4)
   - [Momenty](#momenty)
   - [Kowariancja](#kowariancja)
   - [Współczynnik korelacji](#współczynnik-korelacji)
-    - [Twierdzenie](#twierdzenie-4)
+    - [Twierdzenie](#twierdzenie-5)
   - [Rozkłady](#rozkłady)
     - [Rozkłady brzegowe](#rozkłady-brzegowe)
   - [Typy rozkładów wektora losowego](#typy-rozkładów-wektora-losowego)
@@ -55,7 +74,7 @@ Spis treści
     - [Rozkład warunkowy dla zmiennej ciągłej](#rozkład-warunkowy-dla-zmiennej-ciągłej)
   - [Warunkowa wartość oczekiwana](#warunkowa-wartość-oczekiwana)
     - [Wartość oczekiwana rozkładu warunkowego](#wartość-oczekiwana-rozkładu-warunkowego)
-    - [Twierdzenie](#twierdzenie-5)
+    - [Twierdzenie](#twierdzenie-6)
     - [Warunkowa wartość oczekiwana zmiennej losowej](#warunkowa-wartość-oczekiwana-zmiennej-losowej)
   - [Nierówność Czebyszewa](#nierówność-czebyszewa)
     - [Nierówność Markowa](#nierówność-markowa)
@@ -69,13 +88,184 @@ Spis treści
     - [Mocne Prawo Wielkich Liczb (MPWL) Kołmogorowa](#mocne-prawo-wielkich-liczb-mpwl-kołmogorowa)
   - [Twierdzenia Poissona](#twierdzenia-poissona)
     - [Twierdzenie Poissona](#twierdzenie-poissona)
-    - [Twierdzenie](#twierdzenie-6)
+    - [Twierdzenie](#twierdzenie-7)
   - [Rozkład Gaussa](#rozkład-gaussa)
   - [Centralne Twierdzenie Graniczne (CTG)](#centralne-twierdzenie-graniczne-ctg)
     - [Wersja najprostrza](#wersja-najprostrza)
     - [Berry-Esséen](#berry-esséen)
 
+</details>
+
+---
+
 # Rachunek Prawdopodobieństwa i Statystyka
+
+## Aksjomatyczna definicja prawdopodobieństwa
+
+Prawdopodobieństwem nazywamy funkcję $P$ o wartościach rzeczywistych, określoną na $\sigma$-ciele zdarzeń $\mathcal{F}\subset2^\Omega$, spełniającą warunki:
+
+1. $P(A)\ge0$ dla każdego $A\in\mathcal{F}$
+2. $P(\Omega)=1$
+3. Jeżeli $A_i\in\mathcal{F}$ dla $i\in\N$ oraz $A_i\ne A_j$, gdy $i\ne j$, to
+$$
+P(\bigcup_{i=0}^{\infin}A_i)=\sum_{i=0}^{\infin}P(A_i)
+$$
+
+Trójkę $(\Omega,\ \mathcal{F},\ P)$ nazywamy przestrzenią probabilistyczną
+
+## Co, gdy zdarzenia nie są równie prawdopodobne
+
+Niech $\Omega=\{\omega_1,\dots,\omega_n\}$, $\mathcal{F}=2^\Omega$ i ponadto niech będą dane nieujemne liczby $p_1,\dots,p_n$ takie, że $p_1+\dots+p_n=1$. Dla każdego zbioru $A=\{\omega_{i_1},\dots,\omega_{i_k}\}$ definiujemy
+$$
+P(A)=\sum_{j=1}^{k}p_{i_j}
+$$
+
+Wtedy $(\Omega,\ \mathcal{F},\ P)$ jest przestrzenią probabilistyczną
+
+## Podstawowe własności prawdopodobieństwa
+
+Jeżeli $(\Omega,\ \mathcal{F},\ P)$ jest przestrzenią probabilistyczną i $A,\ B,\ a_1,\dots,A_n\in\mathcal{F}$, to:
+
+1. $P(\empty)=0$
+2. Jeżeli $A_1,\dots,A_n$ wykluczają się parami ($A_i\ne A_j$, gdy $i\ne j$) to
+$$
+P(\bigcup_{i=1}^{n}A_i)=\sum_{i=0}^{n}P(A_i)
+$$
+3. $P(A')=1-P(A)$
+4. Jeżeli $A\subset B$, to $P(B\backslash A)=P(B)-P(A)$
+5. Jeżeli $A\subset B$, to $P(A)\le P(B)$
+6. Dla dowolnego $A$ zachodzi $P(A)\le1$
+7. $P(A\cup B)=P(A)+P(B)-P(A\cap B)$
+
+## Klasyczna definicja prawdopodobieństwa
+
+Przyjmijmy, że zbiór zdarzeń elementarnych $\Omega$ jest skończony, a same zdarzenia elementarne jednakowo prawdopodobne. Wówczas prawdopodobieństwo zdarzenia $A\subset\Omega$ wynosi
+$$
+P(A)=\frac{\#A}{\#\Omega}
+$$
+Powyższy wzór nazywany jest klasyczną definicją prawdopodobieństwa
+
+### Przeliczalny zbiór zdarzeń elementarnych
+
+Załóżmy, że $\Omega=\{\omega_1,\ \omega_2,\dots\}$ i $\{\omega_i\}\in\mathcal{F}$ dla dowolnego $i\in\N$, oraz że $p$ jest prawdopodobieństwem. Wówczas każdy zbiór $A=\{\omega_{i_1},\ \omega_{i_2},\dots\}\subset\Omega$ jest zdarzeniem, a ponadto
+$$
+P(A)=\sum_{k\ge1}p_{i_k}
+$$
+gdzie $p_i=P(\{\omega_i\})$
+
+**Uwaga:** Na zbiorze przeliczalnym i nieskończonym prawdopodobieństwo nie moze być rozłożone równo!
+
+### Paradoks Bertranda
+
+Na okręgu o promieniu $r=1$ skonstruowano losowo cięciwę $AB$. Jaka jest szansa, że będzie ona dłuższa niż bok trójkąta równobocznego wpisanego w okrąg?
+
+### Subaddytywność prawdopodobieństwa
+
+Niech $(\Omega,\ \mathcal{F},\ P)$ będzie przestrzenią probabilistyczną, oraz niech $\{A_i\}_{i=1}^n\subset\mathcal{F}$ dla pewnego $n\in\N$. Wówczas
+$$
+P(\bigcup_{k=1}^{n}A_k)\le\sum_{k=1}^{n}P(A_k)
+$$
+
+### Wzór włączeń i wyłączeń
+
+Niech $(\Omega,\ \mathcal{F},\ P)$ będzie przestrzenią probabilistyczną. Dla dowolnego $\{A_i\}_{i=1}^{n}\subset\mathcal{F}$ zachodzi
+$$
+P(A_1\cup\dots\cup A_n)=\sum_{1\le i\le n}P(A_i)-\sum_{1\le i_1<i_2\le n}P(A_{i_1}\cap A_{i_2})+\dots+(-1)^{n+1}\cdot P(A_1\cap\dots\cap A_n)
+$$
+
+### Twierdzenie o ciągłości
+
+Niech $(\Omega,\ \mathcal{F},\ P)$ będzie przestrzenią probabilistyczną.
+
+1. Jeżeli $\{A_n\}_{n=1}^{\infin}\subset\mathcal{F}$, oraz dla dowolnego $n\in\N,\ A_n\subset A_{n+1}$ (nazywamy $A_n$ wstępującą rodziną zdarzeń) i $\bigcup_{n=1}^{\infin}A_n=A$, to
+$$
+P(A)=\lim_{n\rightarrow\infin}P(A_n)
+$$
+2. Jeżeli $\{A_n\}_{n=1}^{\infin}\subset\mathcal{F}$, oraz dla dowolnego $n\in\N,\ A_{n+1}\subset A_n$ (nazywamy $A_n$ zstępującą rodziną zdarzeń) i $\bigcup_{n=1}^{\infin}A_n=A$, to
+$$
+P(A)=\lim_{n\rightarrow\infin}P(A_n)
+$$
+
+## Prawdopodobieństwo warunkowe
+
+Prawdopodobieństwem warunkowym zajścia zdarzenia $A$ pod warunkiem zajścia zdarzenia $B$, gdzie $P(B)>0$, nazywamy liczbę
+$$
+P(A|B)=\frac{P(A\cap B)}{P(B)}
+$$
+
+**Uwaga:** Pisząc $P(A|B)$ zawsze milcząco zakładamy, że $P(B)>0$
+
+### Wzór łańcuchowy
+
+Jeżeli zdarzenia $A_1,\ A_2,\dots,A_n$ spełniają warunek $P(A_1\cap\dots\cap A_n)>0$ to
+$$
+P(A_1\cap\dots\cap A_n)=P(A_1)\cdot P(A_2|A_1)\dots P(A_n|A_1\cap\dots\cap A_{n-1})
+$$
+
+## Prawdopodobieństwo całkowite
+
+Jeżeli $\{H_1,\ H_2,\dots,H_n\}$ jest rozbiciem $\Omega$ na zdarzenia o dodatnim prawdopodobieństwie, to dla dowolnego zdarzenia $A$
+$$
+P(A)=\sum_{i=1}^{n}P(A|H_i)\cdot P(H_i)
+$$
+
+### Rozbicie przestrzeni
+
+Rozbiciem przestrzeni $\Omega$ nazywamy rodzinę zdarzeń $\{H_i\}_{i\in I}$, które parami wykluczają się, ich suma zaś jest równa $\Omega$
+
+### Wzór Bayesa
+
+Jeżeli $\{H_i\}_{i\in I}$ jest przeliczalnym rozbiciem $\Omega$ na zdarzenia o dodatnim prawdopodobieństwie oraz $P(A)>0$, to dla dowolnego $j\in I$ mamy
+$$
+P(H_j|A)=\frac{P(A|H_j)\cdot P(H_j)}{\sum_{i\in I}P(A|H_i)\cdot P(H_i)}
+$$
+
+## Niezależność zdarzeń
+
+Zdarzenia $A$ i $B$ nazywamy niezależnymi, gdy
+$$
+P(A\cap B)=P(A)\cdot P(B)
+$$
+
+Alternatywnie: zdarzenie $B$ nie zależy od zdarzenia $A$, gdy
+$$
+P(B|A)=P(B)
+$$
+
+### Niezależność wielu zdarzeń
+
+Zdarzenia $A_1,\dots,A_n$ nazywamy niezależnymi, gdy
+$$
+P(A_{i_1}\cap\dots\cap A_{i_k})=P(A_{i_1})\cdot\ \dots\ \cdot P(A_{i_k})
+$$
+dla wszystkich ciągów wskaźników ($i_1,\dots,i_k$), gdzie $1\le i_1<\dots<i_k\le n$, $k=2,\ 3,\dots,\ n$
+
+### Własności
+
+1. Jeśli zdarzenia $A_1$ i $A_2$ są niezależne, to $A_1$ i $A'_2$, $A'_1$ i $A_2$, oraz $A'_1$ i $A'_2$ są parami zdarzeń niezależnych
+2. Jeśli $A_1,\dots,A_n$ są niezależne, to niezależne są także $B_1,\dots,B_n$, gdzie $B_i=A_i$ lub $B_i=A'_i$, $i=1,\dots,n$
+3. Następujące warunki są równoważne:
+   - Zdarzenia $A_1,\dots,A_n$ są niezależne
+   - Dla każdego ciągu $B_1,\dots,B_n$, gdzie $B_i=A_i$ lub $B_i=A'_i$, $i=1,\dots,n$, zdarzenia $B_i$ są niezależne
+   - Dla każdego ciągu $B_1,\dots,B_n$, gdzie $B_i=A_i$ lub $B_i=A'_i$, $i=1,\dots,n$ zachodzi równość
+   $$
+    P(B_{i_1}\cap\dots\cap B_{i_k})=P(B_{i_1})\cdot\ \dots\ \cdot P(B_{i_k})
+   $$
+4. Gdy $A_1,\dots,A_n$ są niezależne, to
+$$
+P(\bigcup_{i=1}^{n}A_i)=1-P(\bigcap_{i=1}^{n}A'_i)=1-\prod_{i=1}^{n}(1-P(A_i))
+$$
+
+## Schemat Bernoulliego
+
+Schematem Bernoulliego będziemy nazywać skończony ciąg niezależnych powtórzeń tego samego doświadczenia o dwóch możliwych wynikach, nazywanych umownie sukcesem i porażką. Poszczególne doświadczenia będziemy nazywać próbami Bernoulliego.
+
+### Twierdzenie
+
+Prawdopodobieństwo pojawienia się dokładnie $k$ sukcesów w schemacie Bernoulliego $n$ prób, z prawdopodobieństwem sukcesu w pojedyńczej próbie równym $p$ wynosi
+$$
+{n\choose k}\cdot p^k\cdot (1-p)^{n-k}
+$$
 
 ## Lemat Borela-Cantelliego
 
@@ -95,14 +285,6 @@ $$
 ## Zmienna losowa
 
 Funkcję $X:\Omega\rightarrow\R$ nazywamy zmienną losową o wartościach w $\R$, jeśli dla każdego $a\in\R$ zbiór $X^{-1}([-\infin,\ a])$ jest zdarzeniem, czyli $X^{-1}([-\infin,\ a])\in\mathcal{F}$
-
-### Przykłady
-
-1. Rzucamy monetą $\Omega = \{O,\ R\}$. Jeśli $X$ (odpowiednio $Y$) jest liczbą wyrzuconych orłów (odpowiednio reszek), to $X(O) = 1$, $X(R) = 0$, $Y(O) = 0$, $Y(R) = 1$.
-2. Niech $X$ (odpowiednio $Y$) będzie odległością punktu, wybranego losowo z przedziału $[a,\ b]$ od jego środka (odpowiednio prawego końca). Wtedy
-$$
-X(\omega) = |\omega-\frac{a+b}{2}|,\ Y(\omega)=b-\omega
-$$
 
 ## Rozkład prawdopodobieństwa
 
@@ -177,11 +359,6 @@ Powiemy, że zmienna losowa $X$ ma rozkład wykładniczy z parametrem $\lambda\g
 $$
 f(x)=\lambda e^{-\lambda x}1_{(0,\ \infin)}(x)
 $$
-
-### Przykłady
-
-1. Dla jakiego $a$ funkcja $f(x)=(ax-1)1_{0,1}(x)$ jest gęstością rozkładu zmiennej losowej?
-2. Obliczyć $P(|X-1|\lt2)$, gdy $X$ ma rozkład wykładniczy z parametrem 1.
 
 ## Dystrybuanta
 
