@@ -1,7 +1,7 @@
 <details>
 <summary>Spis treści</summary>
 
-- [Rachunek Prawdopodobieństwa i Statystyka](#rachunek-prawdopodobieństwa-i-statystyka)
+- [Część I - prawdopodobieństwo klasyczne](#część-i---prawdopodobieństwo-klasyczne)
   - [Aksjomatyczna definicja prawdopodobieństwa](#aksjomatyczna-definicja-prawdopodobieństwa)
   - [Co, gdy zdarzenia nie są równie prawdopodobne](#co-gdy-zdarzenia-nie-są-równie-prawdopodobne)
   - [Podstawowe własności prawdopodobieństwa](#podstawowe-własności-prawdopodobieństwa)
@@ -23,6 +23,7 @@
     - [Twierdzenie](#twierdzenie)
   - [Lemat Borela-Cantelliego](#lemat-borela-cantelliego)
     - [Twierdzenie](#twierdzenie-1)
+- [Część II - Zmienna losowa](#część-ii---zmienna-losowa)
   - [Zmienna losowa](#zmienna-losowa)
   - [Rozkład prawdopodobieństwa](#rozkład-prawdopodobieństwa)
   - [Rozkłady dyskretne](#rozkłady-dyskretne)
@@ -76,6 +77,7 @@
     - [Wartość oczekiwana rozkładu warunkowego](#wartość-oczekiwana-rozkładu-warunkowego)
     - [Twierdzenie](#twierdzenie-6)
     - [Warunkowa wartość oczekiwana zmiennej losowej](#warunkowa-wartość-oczekiwana-zmiennej-losowej)
+- [Część III - statystyka](#część-iii---statystyka)
   - [Nierówność Czebyszewa](#nierówność-czebyszewa)
     - [Nierówność Markowa](#nierówność-markowa)
     - [Nierówność Czebyszewa-Bienaymé](#nierówność-czebyszewa-bienaymé)
@@ -92,13 +94,17 @@
   - [Rozkład Gaussa](#rozkład-gaussa)
   - [Centralne Twierdzenie Graniczne (CTG)](#centralne-twierdzenie-graniczne-ctg)
     - [Wersja najprostrza](#wersja-najprostrza)
-    - [Berry-Esséen](#berry-esséen)
+    - [Twierdzenie de Moivre'a-Laplace'a](#twierdzenie-de-moivrea-laplacea)
+    - [Twierdzenie Berry-Esséen](#twierdzenie-berry-esséen)
+  - [Populacja i próba](#populacja-i-próba)
+  - [Średnia i częstość](#średnia-i-częstość)
+  - [Estymatory](#estymatory)
 
 </details>
 
 ---
 
-# Rachunek Prawdopodobieństwa i Statystyka
+# Część I - prawdopodobieństwo klasyczne
 
 ## Aksjomatyczna definicja prawdopodobieństwa
 
@@ -281,6 +287,8 @@ $$
 $$
 P(\{A_n\text{ n.c.}\})=1
 $$
+
+# Część II - Zmienna losowa
 
 ## Zmienna losowa
 
@@ -626,6 +634,8 @@ $$
 $$
 gdzie $m(x)=\mathcal{E}(Y|X=x)$.
 
+# Część III - statystyka
+
 ## Nierówność Czebyszewa
 
 Niech $X$ będzie nieujemną zmienną losową. Wtedy dla dowolnego $\epsilon>0$
@@ -736,10 +746,46 @@ $$
 P(\frac{X_1+\dots+X_n-nm}{\sigma\sqrt{n}})\xrightarrow[{n\rightarrow\infin}]{}\Phi(t)
 $$
 
-### Berry-Esséen
+### Twierdzenie de Moivre'a-Laplace'a
+
+Niech $-\infin\le a\le b\le\infin$, $h=\frac{1}{\sqrt{npq}}$. Wtedy
+$$
+P(a\le\frac{S_n-np}{\sqrt{npq}}\le b)-(\Phi(b+\frac{1}{2}h)-\Phi(a-\frac{1}{2}h))\xrightarrow[{n\rightarrow\infin}]{}0
+$$
+
+### Twierdzenie Berry-Esséen
 
 Jeśli $(X_n)$ jest ciągiem niezależnych zmiennych losowych o tym samym rozkładzie i $\mathcal{E}|X_1|^3<\infin$, $S_n\X_1+\dots+X_n$, $n=1,\ 2,\dots$, to
 $$
 \sup_{t\in\R}|P(\frac{S_n-\mathcal{E}S_n}{\sqrt{\mathcal{D}^2S_n}})-\Phi(t)|\le C\frac{\mathcal{E}|X_1-\mathcal{E}X_1|^3}{\sigma^3\sqrt{n}}
 $$
 gdzie $\sigma=\sqrt{\mathcal{D}^2X_1}$, $\frac{1}{\sqrt{2\pi}}\le C<\frac{4}{5}$
+
+## Populacja i próba
+
+Pojedynczą wartość parametru nazywamy cechą statystyczną. Cechy mogą być ilościowe lub jakościowe.
+
+Statystyczną populacją (lub w skrócie populacją) nazywamy zbiór wszystkich możliwych cech pewnego wybranego parametru.
+
+Obiekt którego cechę badamy nazywamy jednostką statystyczną.
+
+Prostą próbą losową o liczności $n$ nazywamy ciąg niezależnych zmiennych losowych $X_1,\dots,X_n$ określonych na populacji i takich, że każda z nich ma ten sam rozkład.
+
+Statystyką nazywamy funkcję przypisującą wartości rzeczywiste dla próby losowej.
+
+## Średnia i częstość
+
+Średnią w prostej próbie losowej $X_1,\dots,X_n$ o liczności $n$ nazywamy statystykę
+$$
+\overline{X}=\frac{X_1+\dots+X_n}{n}
+$$
+
+Częstością występowania w prostej próbie losowej nazywamy statystykę
+$$
+\hat{p}=\frac{\sum_{i=1}^{n}X_i}{n}
+$$
+gdzie $X_1,\dots,X_n$ jest prostą próbą losową z rozkładu dwupunktowego o wartościach $0$ i $1$.
+
+## Estymatory
+
+Statystykę $T(X_1,\dots,X_n)$ służącą do oszacowania nieznanego parametru populacji nazywamy estymatorem. Dla konkretnych wartości próby $T(x_1,\dots,x_n)$ nazywamy wartością estymatora.
