@@ -110,7 +110,7 @@
 
 Prawdopodobieństwem nazywamy funkcję $P$ o wartościach rzeczywistych, określoną na $\sigma$-ciele zdarzeń $\mathcal{F}\subset2^\Omega$, spełniającą warunki:
 
-1. $P(A)\ge0$ dla każdego $A\in\mathcal{F}$
+1. $P(A)\geqslant0$ dla każdego $A\in\mathcal{F}$
 2. $P(\Omega)=1$
 3. Jeżeli $A_i\in\mathcal{F}$ dla $i\in\N$ oraz $A_i\ne A_j$, gdy $i\ne j$, to
 $$
@@ -139,8 +139,8 @@ P(\bigcup_{i=1}^{n}A_i)=\sum_{i=0}^{n}P(A_i)
 $$
 3. $P(A')=1-P(A)$
 4. Jeżeli $A\subset B$, to $P(B\backslash A)=P(B)-P(A)$
-5. Jeżeli $A\subset B$, to $P(A)\le P(B)$
-6. Dla dowolnego $A$ zachodzi $P(A)\le1$
+5. Jeżeli $A\subset B$, to $P(A)\leqslant P(B)$
+6. Dla dowolnego $A$ zachodzi $P(A)\leqslant1$
 7. $P(A\cup B)=P(A)+P(B)-P(A\cap B)$
 
 ## Klasyczna definicja prawdopodobieństwa
@@ -155,7 +155,7 @@ Powyższy wzór nazywany jest klasyczną definicją prawdopodobieństwa
 
 Załóżmy, że $\Omega=\{\omega_1,\ \omega_2,\dots\}$ i $\{\omega_i\}\in\mathcal{F}$ dla dowolnego $i\in\N$, oraz że $p$ jest prawdopodobieństwem. Wówczas każdy zbiór $A=\{\omega_{i_1},\ \omega_{i_2},\dots\}\subset\Omega$ jest zdarzeniem, a ponadto
 $$
-P(A)=\sum_{k\ge1}p_{i_k}
+P(A)=\sum_{k\geqslant1}p_{i_k}
 $$
 gdzie $p_i=P(\{\omega_i\})$
 
@@ -169,14 +169,14 @@ Na okręgu o promieniu $r=1$ skonstruowano losowo cięciwę $AB$. Jaka jest szan
 
 Niech $(\Omega,\ \mathcal{F},\ P)$ będzie przestrzenią probabilistyczną, oraz niech $\{A_i\}_{i=1}^n\subset\mathcal{F}$ dla pewnego $n\in\N$. Wówczas
 $$
-P(\bigcup_{k=1}^{n}A_k)\le\sum_{k=1}^{n}P(A_k)
+P(\bigcup_{k=1}^{n}A_k)\leqslant\sum_{k=1}^{n}P(A_k)
 $$
 
 ### Wzór włączeń i wyłączeń
 
 Niech $(\Omega,\ \mathcal{F},\ P)$ będzie przestrzenią probabilistyczną. Dla dowolnego $\{A_i\}_{i=1}^{n}\subset\mathcal{F}$ zachodzi
 $$
-P(A_1\cup\dots\cup A_n)=\sum_{1\le i\le n}P(A_i)-\sum_{1\le i_1<i_2\le n}P(A_{i_1}\cap A_{i_2})+\dots+(-1)^{n+1}\cdot P(A_1\cap\dots\cap A_n)
+P(A_1\cup\dots\cup A_n)=\sum_{1\leqslant i\leqslant n}P(A_i)-\sum_{1\leqslant i_1<i_2\leqslant n}P(A_{i_1}\cap A_{i_2})+\dots+(-1)^{n+1}\cdot P(A_1\cap\dots\cap A_n)
 $$
 
 ### Twierdzenie o ciągłości
@@ -244,7 +244,7 @@ Zdarzenia $A_1,\dots,A_n$ nazywamy niezależnymi, gdy
 $$
 P(A_{i_1}\cap\dots\cap A_{i_k})=P(A_{i_1})\cdot\ \dots\ \cdot P(A_{i_k})
 $$
-dla wszystkich ciągów wskaźników ($i_1,\dots,i_k$), gdzie $1\le i_1<\dots<i_k\le n$, $k=2,\ 3,\dots,\ n$
+dla wszystkich ciągów wskaźników ($i_1,\dots,i_k$), gdzie $1\leqslant i_1<\dots<i_k\leqslant n$, $k=2,\ 3,\dots,\ n$
 
 ### Własności
 
@@ -372,7 +372,7 @@ $$
 
 Dystrybuantą zmiennej losowej $X:\Omega\rightarrow\R$ nazywamy funkcję $F_X:\R\rightarrow\R$, określoną zależnością
 $$
-F_X(t)=P(X\le t)
+F_X(t)=P(X\leqslant t)
 $$
 
 ### Własności
@@ -433,9 +433,9 @@ $$
 
 Załóżmy, że istnieją wartości oczekiwane $\mathcal{E}X$ i $\mathcal{E}Y$. Wtedy
 
-1. jeśli $X\ge0$, to $\mathcal{E}X\ge0$
-2. jeśli $X\le Y$, to $\mathcal{E}X\le\mathcal{E}Y$
-3. $|\mathcal{E}X|\le\mathcal{E}|X|$
+1. jeśli $X\geqslant0$, to $\mathcal{E}X\geqslant0$
+2. jeśli $X\leqslant Y$, to $\mathcal{E}X\leqslant\mathcal{E}Y$
+3. $|\mathcal{E}X|\leqslant\mathcal{E}|X|$
 4. dla $a,\ b\in\R$ istnieje wartość oczekiwana zmiennej $aX+bY$ i
 $$
 \mathcal{E}(aX+bY)=a\mathcal{E}X+b\mathcal{E}Y
@@ -444,8 +444,8 @@ $$
 
 ### Stwierdzenie
 
-1. Jeżeli $X$ jest zmienną losową przyjmującą wartości całkowite nieujemne, to $\mathcal{E}X=\sum_{n=1}^{\infin}P(X\ge n)$.
-2. Jeśli $X\ge0$, to
+1. Jeżeli $X$ jest zmienną losową przyjmującą wartości całkowite nieujemne, to $\mathcal{E}X=\sum_{n=1}^{\infin}P(X\geqslant n)$.
+2. Jeśli $X\geqslant0$, to
 $$
 \mathcal{E}X=\int_0^\infin(1-F_X(t))\mathrm{d}t\int_0^\infin P(X>t)\mathrm{d}t
 $$
@@ -463,7 +463,7 @@ $$
 
 Jeśli $X$ jest zmienną losową, dla której $\mathcal{E}X^2<\infin$, to istnieje $\mathcal{D}^2X$ oraz:
 
-1. $\mathcal{D}^2X\ge0$; $\mathcal{D}^2X=0$ wtedy i tylko wtedy, gdy $P(X=c)=1$ dla pewnej stałej $c$
+1. $\mathcal{D}^2X\geqslant0$; $\mathcal{D}^2X=0$ wtedy i tylko wtedy, gdy $P(X=c)=1$ dla pewnej stałej $c$
 
 ## Momenty
 
@@ -488,7 +488,7 @@ $$
 
 Jeżeli zmienne losowe $X_1,\dots,X_n$ mają wariancję, to istnieje wariancja ich sumy i
 $$
-\mathcal{D}^2(X_1+\dots+X_n)=\sum_{i=1}^{n}\mathcal{D}^2X_i+2\sum_{1\le i>j\le n}\text{cov}(X_i,\ X_j)
+\mathcal{D}^2(X_1+\dots+X_n)=\sum_{i=1}^{n}\mathcal{D}^2X_i+2\sum_{1\leqslant i>j\leqslant n}\text{cov}(X_i,\ X_j)
 $$
 
 ## Rozkłady
@@ -519,7 +519,7 @@ $$
 
 Dystrybuantą wektora losowego $(X,\ Y)$ o wartościach $\R^2$ nazywamy funkcję $F_{(X,\ Y)}:\R^2\rightarrow\R$ określoną zależnością
 $$
-F_{(X,\ Y)}(t,\ s)=P(X\le t,\ Y\le s)=\mu_X((-\infin,\ t]\times(-\infin,\ s])
+F_{(X,\ Y)}(t,\ s)=P(X\leqslant t,\ Y\leqslant s)=\mu_X((-\infin,\ t]\times(-\infin,\ s])
 $$
 
 ## Wartość oczekiwana wektora losowego
@@ -640,28 +640,28 @@ gdzie $m(x)=\mathcal{E}(Y|X=x)$.
 
 Niech $X$ będzie nieujemną zmienną losową. Wtedy dla dowolnego $\epsilon>0$
 $$
-P(X\ge\epsilon)\le\frac{\mathcal{E}X}{\epsilon}
+P(X\geqslant\epsilon)\leqslant\frac{\mathcal{E}X}{\epsilon}
 $$
 
 ### Nierówność Markowa
 
 Niech $p>0$. Wtedy dla dowolnego $\epsilon>0$
 $$
-P(|X|\ge\epsilon)\le\frac{\mathcal{E}|X|^p}{\epsilon^p}
+P(|X|\geqslant\epsilon)\leqslant\frac{\mathcal{E}|X|^p}{\epsilon^p}
 $$
 
 ### Nierówność Czebyszewa-Bienaymé
 
 Dla dowolnego $\epsilon>0$
 $$
-P(|X-\mathcal{E}X|\ge\epsilon)\le\frac{\mathcal{D}^2X}{\epsilon^2}
+P(|X-\mathcal{E}X|\geqslant\epsilon)\leqslant\frac{\mathcal{D}^2X}{\epsilon^2}
 $$
 
 ### Wykładnicza nierówność Czebyszewa
 
 Jeśli $\mathcal{E}e^{pX}<\infin$ dla pewnego $p>0$, to dla $\lambda\in[0,\ p]$
 $$
-P(X\ge\epsilon)\le\frac{\mathcal{E}|X|^p}{\epsilon^p}
+P(X\geqslant\epsilon)\leqslant\frac{\mathcal{E}|X|^p}{\epsilon^p}
 $$
 dla dowolnego $\epsilon$
 
@@ -671,7 +671,7 @@ dla dowolnego $\epsilon$
 
 Jeśli $S_n$ jest liczbą sukcesów w schemacie Bernoulliego $n$ prób z prawdopodobieństwem sukcesu w pojedynczej próbie równym $p$, to dla każdego $\epsilon>0$
 $$
-\lim_{n\rightarrow\infin}P(|\frac{S_n}{n}-p|\le\epsilon)=1
+\lim_{n\rightarrow\infin}P(|\frac{S_n}{n}-p|\leqslant\epsilon)=1
 $$
 
 ### Słabe Prawo Wielkich Liczb (SPWL)
@@ -690,7 +690,7 @@ $$
 
 Oznaczmy przez $S_n$ liczbę sukcesów w schemacie Bernoulliego $n$ prób z prawdopodobieństwem sukcesu w pojedynczej próbie równym $p$. Wtedy dla każdego $\epsilon>0$
 $$
-\lim_{n\rightarrow\infin}P(\sup_{k\ge n}|\frac{S_k}{k}-p|\le\epsilon)=1
+\lim_{n\rightarrow\infin}P(\sup_{k\geqslant n}|\frac{S_k}{k}-p|\leqslant\epsilon)=1
 $$
 
 ### Twierdzenie Kołmogorowa
@@ -725,7 +725,7 @@ $$
 
 Niech zmienna losowa $S_n$ ma rozkład Bernoulliego z parametrami $n$, $p$ i niech $\lambda=np$. Wtedy dla każdego zbioru $B\subset\{0,1,2,\dots\}$ mamy
 $$
-|P(S_n\in B)-\sum_{k\in B}\frac{\lambda^k}{k!}e^{-\lambda}|\le\frac{\lambda^2}{n}
+|P(S_n\in B)-\sum_{k\in B}\frac{\lambda^k}{k!}e^{-\lambda}|\leqslant\frac{\lambda^2}{n}
 $$
 
 ## Rozkład Gaussa
@@ -748,18 +748,18 @@ $$
 
 ### Twierdzenie de Moivre'a-Laplace'a
 
-Niech $-\infin\le a\le b\le\infin$, $h=\frac{1}{\sqrt{npq}}$. Wtedy
+Niech $-\infin\leqslant a\leqslant b\leqslant\infin$, $h=\frac{1}{\sqrt{npq}}$. Wtedy
 $$
-P(a\le\frac{S_n-np}{\sqrt{npq}}\le b)-(\Phi(b+\frac{1}{2}h)-\Phi(a-\frac{1}{2}h))\xrightarrow[{n\rightarrow\infin}]{}0
+P(a\leqslant\frac{S_n-np}{\sqrt{npq}}\leqslant b)-(\Phi(b+\frac{1}{2}h)-\Phi(a-\frac{1}{2}h))\xrightarrow[{n\rightarrow\infin}]{}0
 $$
 
 ### Twierdzenie Berry-Esséen
 
 Jeśli $(X_n)$ jest ciągiem niezależnych zmiennych losowych o tym samym rozkładzie i $\mathcal{E}|X_1|^3<\infin$, $S_n\X_1+\dots+X_n$, $n=1,\ 2,\dots$, to
 $$
-\sup_{t\in\R}|P(\frac{S_n-\mathcal{E}S_n}{\sqrt{\mathcal{D}^2S_n}})-\Phi(t)|\le C\frac{\mathcal{E}|X_1-\mathcal{E}X_1|^3}{\sigma^3\sqrt{n}}
+\sup_{t\in\R}|P(\frac{S_n-\mathcal{E}S_n}{\sqrt{\mathcal{D}^2S_n}})-\Phi(t)|\leqslant C\frac{\mathcal{E}|X_1-\mathcal{E}X_1|^3}{\sigma^3\sqrt{n}}
 $$
-gdzie $\sigma=\sqrt{\mathcal{D}^2X_1}$, $\frac{1}{\sqrt{2\pi}}\le C<\frac{4}{5}$
+gdzie $\sigma=\sqrt{\mathcal{D}^2X_1}$, $\frac{1}{\sqrt{2\pi}}\leqslant C<\frac{4}{5}$
 
 ## Populacja i próba
 
