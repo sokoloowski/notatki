@@ -22,7 +22,8 @@
   - [Schemat Bernoulliego](#schemat-bernoulliego)
     - [Twierdzenie](#twierdzenie)
   - [Lemat Borela-Cantelliego](#lemat-borela-cantelliego)
-    - [Twierdzenie](#twierdzenie-1)
+    - [Lemat 1](#lemat-1)
+    - [Lemat 2](#lemat-2)
 - [Część II - Zmienna losowa](#część-ii---zmienna-losowa)
   - [Zmienna losowa](#zmienna-losowa)
   - [Rozkład prawdopodobieństwa](#rozkład-prawdopodobieństwa)
@@ -37,7 +38,7 @@
   - [Rozkład wykładniczy](#rozkład-wykładniczy)
   - [Dystrybuanta](#dystrybuanta)
     - [Własności](#własności-1)
-    - [Twierdzenie](#twierdzenie-2)
+    - [Twierdzenie](#twierdzenie-1)
   - [Działania na rozkładzie zmiennej losowej](#działania-na-rozkładzie-zmiennej-losowej)
   - [Wartość oczekiwana](#wartość-oczekiwana)
     - [Przypadek dyskretny](#przypadek-dyskretny)
@@ -45,14 +46,14 @@
   - [Wartość oczekiwana dla funkcji od zmiennej losowej](#wartość-oczekiwana-dla-funkcji-od-zmiennej-losowej)
     - [Przypadek dyskretny](#przypadek-dyskretny-1)
   - [Własności wartości oczekiwanej](#własności-wartości-oczekiwanej)
-    - [Twierdzenie](#twierdzenie-3)
+    - [Twierdzenie](#twierdzenie-2)
     - [Stwierdzenie](#stwierdzenie)
   - [Wariancja](#wariancja)
-    - [Twierdzenie](#twierdzenie-4)
+    - [Twierdzenie](#twierdzenie-3)
   - [Momenty](#momenty)
   - [Kowariancja](#kowariancja)
   - [Współczynnik korelacji](#współczynnik-korelacji)
-    - [Twierdzenie](#twierdzenie-5)
+    - [Twierdzenie](#twierdzenie-4)
   - [Rozkłady](#rozkłady)
     - [Rozkłady brzegowe](#rozkłady-brzegowe)
   - [Typy rozkładów wektora losowego](#typy-rozkładów-wektora-losowego)
@@ -75,7 +76,7 @@
     - [Rozkład warunkowy dla zmiennej ciągłej](#rozkład-warunkowy-dla-zmiennej-ciągłej)
   - [Warunkowa wartość oczekiwana](#warunkowa-wartość-oczekiwana)
     - [Wartość oczekiwana rozkładu warunkowego](#wartość-oczekiwana-rozkładu-warunkowego)
-    - [Twierdzenie](#twierdzenie-6)
+    - [Twierdzenie](#twierdzenie-5)
     - [Warunkowa wartość oczekiwana zmiennej losowej](#warunkowa-wartość-oczekiwana-zmiennej-losowej)
 - [Część III - statystyka](#część-iii---statystyka)
   - [Nierówność Czebyszewa](#nierówność-czebyszewa)
@@ -90,7 +91,7 @@
     - [Mocne Prawo Wielkich Liczb (MPWL) Kołmogorowa](#mocne-prawo-wielkich-liczb-mpwl-kołmogorowa)
   - [Twierdzenia Poissona](#twierdzenia-poissona)
     - [Twierdzenie Poissona](#twierdzenie-poissona)
-    - [Twierdzenie](#twierdzenie-7)
+    - [Twierdzenie](#twierdzenie-6)
   - [Rozkład Gaussa](#rozkład-gaussa)
   - [Centralne Twierdzenie Graniczne (CTG)](#centralne-twierdzenie-graniczne-ctg)
     - [Wersja najprostrza](#wersja-najprostrza)
@@ -98,6 +99,8 @@
     - [Twierdzenie Berry-Esséen](#twierdzenie-berry-esséen)
   - [Populacja i próba](#populacja-i-próba)
   - [Średnia i częstość](#średnia-i-częstość)
+    - [Średnia ("cechy ilościowe")](#średnia-cechy-ilościowe)
+    - [Częstość ("cechy jakościowe")](#częstość-cechy-jakościowe)
   - [Estymatory](#estymatory)
 
 </details>
@@ -138,7 +141,7 @@ $$
 P(\bigcup_{i=1}^{n}A_i)=\sum_{i=0}^{n}P(A_i)
 $$
 3. $P(A')=1-P(A)$
-4. Jeżeli $A\subset B$, to $P(B\backslash A)=P(B)-P(A)$
+4. Jeżeli $A\subset B$, to $P(B\setminus A)=P(B)-P(A)$
 5. Jeżeli $A\subset B$, to $P(A)\leqslant P(B)$
 6. Dla dowolnego $A$ zachodzi $P(A)\leqslant1$
 7. $P(A\cup B)=P(A)+P(B)-P(A\cap B)$
@@ -277,16 +280,16 @@ $$
 
 Dla dowolnego ciągu zdarzeń ($A_n$), definiujemy zbiór zdarzeń, które zachodzą nieskończenie często jako:
 $$
-\{A_n\text{ n.c.}\} = \bigcap\limits^{\infin}_{m=1}\bigcap\limits^{\infin}_{n=m}A_n
+\{A_n\text{ n.c.}\} = \bigcap_{m=1}^{\infin}\sum_{n=m}^{\infin}A_n
 $$
 
-### Twierdzenie
+### Lemat 1
 
-1. Jeśli $\sum^{\infin}_{n=1}P(A)\lt{\infin}$, to $P(\{A_n\text{ n.c.}\})$
-2. Jeśli zdarzenia $A_1,\ A_2,\ \dots$ są niezależne i $\sum^\infin_{n=1}P(A_n)=\infin$, to
-$$
-P(\{A_n\text{ n.c.}\})=1
-$$
+Jeśli $\sum^{\infin}_{n=1}P(A)\lt{\infin}$, to $P(\{A_n\text{ n.c.}\})=0$
+
+### Lemat 2
+
+Jeśli zdarzenia $A_1,\ A_2,\ \dots$ są niezależne i $\sum^\infin_{n=1}P(A_n)=\infin$, to $P(\{A_n\text{ n.c.}\})=1$
 
 # Część II - Zmienna losowa
 
@@ -488,7 +491,7 @@ $$
 
 Jeżeli zmienne losowe $X_1,\dots,X_n$ mają wariancję, to istnieje wariancja ich sumy i
 $$
-\mathcal{D}^2(X_1+\dots+X_n)=\sum_{i=1}^{n}\mathcal{D}^2X_i+2\sum_{1\leqslant i>j\leqslant n}\text{cov}(X_i,\ X_j)
+\mathcal{D}^2(X_1+\dots+X_n)=\sum_{i=1}^{n}\mathcal{D}^2X_i+2\sum_{1\leqslant i<j\leqslant n}\text{cov}(X_i,\ X_j)
 $$
 
 ## Rozkłady
@@ -661,7 +664,7 @@ $$
 
 Jeśli $\mathcal{E}e^{pX}<\infin$ dla pewnego $p>0$, to dla $\lambda\in[0,\ p]$
 $$
-P(X\geqslant\epsilon)\leqslant\frac{\mathcal{E}|X|^p}{\epsilon^p}
+P(X\geqslant\epsilon)\leqslant\frac{\mathcal{E}e^{\lambda X}}{e^{\lambda\epsilon}}
 $$
 dla dowolnego $\epsilon$
 
@@ -678,8 +681,9 @@ $$
 
 Niech $(X_n)_n$ będzie ciągiem zmiennych losowych takich, że:
 
-1. $\lim_{n\rightarrow\infin}\frac{\mathcal{D}^2S_n}{n^2}=0$
-2. $X_n$ są parami nieskorelowane i mają wspólnie ograniczone wariancje
+1. $\lim_{n\rightarrow\infin}\frac{\mathcal{D}^2S_n}{n^2}=0$  
+lub
+1. $X_n$ są parami nieskorelowane i mają wspólnie ograniczone wariancje
 
 Niech $S_n=X_1+\dots+X_n$, gdzie $n=1,\ 2,\dots$ Wtedy $(X_n)_n$ spełnia SPWL, czyli dla każdego $\epsilon>0$
 $$
@@ -718,7 +722,7 @@ z prawdopodobieństwem 1
 
 Jeśli $n\rightarrow\infin$, $p_n\rightarrow0$ i $np_n\rightarrow\lambda>0$, to
 $$
-{n\choose{k}}P_n^k(1-p_n)^n-k\xrightarrow[{n\rightarrow\infin}]{}\frac{\lambda^k}{k!}e^{-\lambda}
+{n\choose{k}}p_n^k(1-p_n)^{n-k}\xrightarrow[{n\rightarrow\infin}]{}\frac{\lambda^k}{k!}e^{-\lambda}
 $$
 
 ### Twierdzenie
@@ -743,7 +747,7 @@ Jeśli zmienna losowa $X$ ma rozkład $\mathcal{N}(0,\ 1)$, to zmienna losowa $\
 
 Niech $X,\ X_1,\ X_2,\dots$ będą niezależnymi zmiennymi losowymi o tym samym rozkładzie, niech $\mathcal{E}X=m$ i $\mathcal{D}^2X=\sigma>0$. Wtedy dla każdego $t$
 $$
-P(\frac{X_1+\dots+X_n-nm}{\sigma\sqrt{n}})\xrightarrow[{n\rightarrow\infin}]{}\Phi(t)
+P(\frac{X_1+\dots+X_n-nm}{\sigma\sqrt{n}}\leqslant t)\xrightarrow[{n\rightarrow\infin}]{}\Phi(t)
 $$
 
 ### Twierdzenie de Moivre'a-Laplace'a
@@ -775,10 +779,14 @@ Statystyką nazywamy funkcję przypisującą wartości rzeczywiste dla próby lo
 
 ## Średnia i częstość
 
+### Średnia ("cechy ilościowe")
+
 Średnią w prostej próbie losowej $X_1,\dots,X_n$ o liczności $n$ nazywamy statystykę
 $$
 \overline{X}=\frac{X_1+\dots+X_n}{n}
 $$
+
+### Częstość ("cechy jakościowe")
 
 Częstością występowania w prostej próbie losowej nazywamy statystykę
 $$
