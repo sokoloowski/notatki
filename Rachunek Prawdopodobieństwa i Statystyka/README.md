@@ -61,6 +61,7 @@
     - [Rozkład ciągły](#rozkład-ciągły)
   - [Dystrybuanta wektora losowego](#dystrybuanta-wektora-losowego)
   - [Wartość oczekiwana wektora losowego](#wartość-oczekiwana-wektora-losowego)
+  - [Macierz kowariancji](#macierz-kowariancji)
   - [Niezależność zmiennych losowych](#niezależność-zmiennych-losowych)
     - [Niezależność rozkładów dyskretnych](#niezależność-rozkładów-dyskretnych)
     - [Niezależność rozkładów ciągłych](#niezależność-rozkładów-ciągłych)
@@ -115,7 +116,7 @@ Prawdopodobieństwem nazywamy funkcję $P$ o wartościach rzeczywistych, określ
 
 1. $P(A)\geqslant0$ dla każdego $A\in\mathcal{F}$
 2. $P(\Omega)=1$
-3. Jeżeli $A_i\in\mathcal{F}$ dla $i\in\N$ oraz $A_i\ne A_j$, gdy $i\ne j$, to
+3. Jeżeli dla $A_1,A_2,\dots\in\mathcal{F}$ parami rozłącznych (tzn. $A_i\cap A_j=\emptyset$, gdy $i\ne j$ dla $i,j\in\N_+$), to
 $$
 P(\bigcup_{i=0}^{\infin}A_i)=\sum_{i=0}^{\infin}P(A_i)
 $$
@@ -136,7 +137,7 @@ Wtedy $(\Omega,\ \mathcal{F},\ P)$ jest przestrzenią probabilistyczną
 Jeżeli $(\Omega,\ \mathcal{F},\ P)$ jest przestrzenią probabilistyczną i $A,\ B,\ a_1,\dots,A_n\in\mathcal{F}$, to:
 
 1. $P(\empty)=0$
-2. Jeżeli $A_1,\dots,A_n$ wykluczają się parami ($A_i\ne A_j$, gdy $i\ne j$) to
+2. Jeżeli dla $A_1,A_2,\dots,A_n$ parami rozłącznych (tzn. $A_i\cap A_j=\emptyset$, gdy $i\ne j$ dla $i,j\in\N_+$), to
 $$
 P(\bigcup_{i=1}^{n}A_i)=\sum_{i=0}^{n}P(A_i)
 $$
@@ -190,7 +191,7 @@ Niech $(\Omega,\ \mathcal{F},\ P)$ będzie przestrzenią probabilistyczną.
 $$
 P(A)=\lim_{n\rightarrow\infin}P(A_n)
 $$
-2. Jeżeli $\{A_n\}_{n=1}^{\infin}\subset\mathcal{F}$, oraz dla dowolnego $n\in\N,\ A_{n+1}\subset A_n$ (nazywamy $A_n$ zstępującą rodziną zdarzeń) i $\bigcup_{n=1}^{\infin}A_n=A$, to
+2. Jeżeli $\{A_n\}_{n=1}^{\infin}\subset\mathcal{F}$, oraz dla dowolnego $n\in\N,\ A_{n+1}\subset A_n$ (nazywamy $A_n$ zstępującą rodziną zdarzeń) i $\bigcap_{n=1}^{\infin}A_n=A$, to
 $$
 P(A)=\lim_{n\rightarrow\infin}P(A_n)
 $$
@@ -280,12 +281,12 @@ $$
 
 Dla dowolnego ciągu zdarzeń ($A_n$), definiujemy zbiór zdarzeń, które zachodzą nieskończenie często jako:
 $$
-\{A_n\text{ n.c.}\} = \bigcap_{m=1}^{\infin}\sum_{n=m}^{\infin}A_n
+\{A_n\text{ n.c.}\} = \bigcap_{m=1}^{\infin}\bigcup_{n=m}^{\infin}A_n
 $$
 
 ### Lemat 1
 
-Jeśli $\sum^{\infin}_{n=1}P(A)\lt{\infin}$, to $P(\{A_n\text{ n.c.}\})=0$
+Jeśli $\sum^{\infin}_{n=1}P(A_n)\lt{\infin}$, to $P(\{A_n\text{ n.c.}\})=0$
 
 ### Lemat 2
 
@@ -308,7 +309,7 @@ $$
 
 ## Rozkłady dyskretne
 
-Zmienna losowa $X$ ma rozkład dyskretny, jeśli istnieje taki zbiór przeliczalny $\mathcal{S}\R$, że $\mu_X(\mathcal{S}) = 1$.
+Zmienna losowa $X$ ma rozkład dyskretny, jeśli istnieje taki zbiór przeliczalny $\mathcal{S}\subset\R$, że $\mu_X(\mathcal{S}) = 1$.
 
 ### Rozkład rzutu kością
 
@@ -319,7 +320,7 @@ $$
 
 ## Rozkład Bernoulliego
 
-Niech $X$ oznacza liczbę sukcesów w schemacjie Bernoulliego $n$ z prawdopodobieństwem sukcesu $p$ w pojedynczym doświadczeniu. Prawdopodobieństwo uzyskania dokładnie $K$ sukcesów wynosi
+Niech $X$ oznacza liczbę sukcesów w schemacie Bernoulliego $n$ z prawdopodobieństwem sukcesu $p$ w pojedynczym doświadczeniu. Prawdopodobieństwo uzyskania dokładnie $K$ sukcesów wynosi
 $$
 p_k=P(X=k)={n \choose k}p^k(1-p)^{n-k}
 $$
@@ -529,6 +530,18 @@ $$
 
 Wartością oczekiwaną wektora losowego $X=(X_1,\dots,X_n)$ o wartościach w $\R^n$ nazywamy wektor $\mathcal{E}X=(\mathcal{E}X_1,\dots,\mathcal{E}X_n)$, o ile wszystkie współrzędne mają wartość oczekiwaną.
 
+## Macierz kowariancji
+
+Jeśli $\mathcal{D}^2X_j<\infin$ dla każdego $j=1,2,\dots,n$, to macierz $Q_X=[c_{ij}]_{i,j=1,\dots,n}$, gdzie $c_{ij}=\text{cov}(X_i,\ X_j)$ nazywamy macierzą kowariancji wektora losowego $X=(X_1,\dots,X_n)$
+
+Macierz kowariancji zmiennej losowej dwuwymiarowej $(X,\ Y)$:
+$$
+\begin{bmatrix}
+  \mathcal{}{D}^2X & \text{cov}(X,\ Y)\\
+  \text{cov}(X,\ Y) & \mathcal{D}^2Y
+\end{bmatrix}
+$$
+
 ## Niezależność zmiennych losowych
 
 Zmienne losowe $X_1,\dots,X_n$ o wartościach w $\R$, określone na $(\Omega,\ \mathcal{F},\ P)$ nazywamy niezależnymi, gdy dla każdego ciągu zbiorów borelowskich $B_1,\dots,B_n$ zachodzi równość
@@ -701,7 +714,7 @@ $$
 
 Jeśli $(X_n)_{n=1}^\infin$ jest ciągiem niezależnych zmiennych losowych takich, że $\mathcal{D}^2X_n<\infin$, gdzie $n=1,\ 2,\dots$, przy czym
 $$
-\sum_{n=1}^{\infin}\frac{\mathcal{D}^2X_n}{n^2}<0
+\sum_{n=1}^{\infin}\frac{\mathcal{D}^2X_n}{n^2}<\infin
 $$
 to z prawdopodobieństwem 1
 $$
@@ -759,9 +772,9 @@ $$
 
 ### Twierdzenie Berry-Esséen
 
-Jeśli $(X_n)$ jest ciągiem niezależnych zmiennych losowych o tym samym rozkładzie i $\mathcal{E}|X_1|^3<\infin$, $S_n\X_1+\dots+X_n$, $n=1,\ 2,\dots$, to
+Jeśli $(X_n)$ jest ciągiem niezależnych zmiennych losowych o tym samym rozkładzie i $\mathcal{E}|X_1|^3<\infin$, $S_nX_1+\dots+X_n$, $n=1,\ 2,\dots$, to
 $$
-\sup_{t\in\R}|P(\frac{S_n-\mathcal{E}S_n}{\sqrt{\mathcal{D}^2S_n}})-\Phi(t)|\leqslant C\frac{\mathcal{E}|X_1-\mathcal{E}X_1|^3}{\sigma^3\sqrt{n}}
+\sup_{t\in\R}|P(\frac{S_n-\mathcal{E}S_n}{\sqrt{\mathcal{D}^2S_n}}\leqslant t)-\Phi(t)|\leqslant C\frac{\mathcal{E}|X_1-\mathcal{E}X_1|^3}{\sigma^3\sqrt{n}}
 $$
 gdzie $\sigma=\sqrt{\mathcal{D}^2X_1}$, $\frac{1}{\sqrt{2\pi}}\leqslant C<\frac{4}{5}$
 
