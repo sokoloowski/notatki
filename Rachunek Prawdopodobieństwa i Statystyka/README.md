@@ -369,7 +369,7 @@ $$
 
 Powiemy, że zmienna losowa $X$ ma rozkład wykładniczy z parametrem $\lambda\gt 0$, gdy gęstość ma postać
 $$
-f(x)=\lambda e^{-\lambda x}1_{(0,\ \infin)}(x)
+f(x)=\lambda e^{-\lambda x}1_{[0,\ \infin)}(x)
 $$
 
 ## Dystrybuanta

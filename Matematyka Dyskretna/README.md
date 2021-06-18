@@ -22,6 +22,8 @@
   - [Relacja częściowego porządku](#relacja-częściowego-porządku)
     - [Przykłady](#przykłady-4)
   - [Element najmniejszy/największy, maksymalny/minimalny w częściowym porządku](#element-najmniejszynajwiększy-maksymalnyminimalny-w-częściowym-porządku)
+    - [Element najmniejszy](#element-najmniejszy)
+    - [Element największy](#element-największy)
   - [Graf pełny, spójny, cykliczny, planarny, drzewo](#graf-pełny-spójny-cykliczny-planarny-drzewo)
     - [Przykłady](#przykłady-5)
   - [Graf Eulera i graf Hamiltona](#graf-eulera-i-graf-hamiltona)
@@ -193,6 +195,20 @@ Niech $X$ będzie dowolnym zbiorem. Relację $\mathcal{R}$ określoną w zbiorze
 3. Relacja $\preccurlyeq$ określona w zbiorze liczb zespolonych: $\displaystyle a+bi\preccurlyeq c+di\iff a\leqslant c\land b\leqslant d$ jest częściowym porządkiem. Nie jest to jednak porządek liniowy.
 
 ## Element najmniejszy/największy, maksymalny/minimalny w częściowym porządku
+
+### Element najmniejszy
+
+Element $x$ w częściowo uporządkowanym zbiorze $(P,\leqslant)$ nazywamy najmniejszym, jeśli jest on mniejszy (lub równy) od każdego elementu zbioru:
+$$
+\forall_y\in P:x\leqslant y
+$$
+
+### Element największy
+
+Element $x$ w częściowo uporządkowanym zbiorze $(P,\leqslant)$ nazywamy największym, jeśli jest on większy (lub równy) od każdego elementu zbioru:
+$$
+\forall_y\in P:y\leqslant x
+$$
 
 ## Graf pełny, spójny, cykliczny, planarny, drzewo
 
